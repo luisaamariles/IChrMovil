@@ -4,6 +4,11 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
+    packagingOptions{
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
     defaultConfig {
         applicationId "com.luisaamariles.ichr_movil"
         minSdkVersion 19
@@ -24,4 +29,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.firebase:firebase-client-android:2.5.2+'
 }
+
+apply plugin: 'com.google.gms.google-services'

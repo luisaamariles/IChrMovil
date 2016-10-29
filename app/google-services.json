@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "13399191623",
+    "firebase_url": "https://ichrmovil.firebaseio.com",
+    "project_id": "ichrmovil",
+    "storage_bucket": "ichrmovil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13399191623:android:4eca6f200feaddfc",
+        "android_client_info": {
+          "package_name": "com.luisaamariles.ichr_movil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13399191623-vup14gvrbcjinu2bk8ecgspccsbc4fpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.luisaamariles.ichr_movil",
+            "certificate_hash": "5B04A4561907D6655EA2F79FEA738E8388D885B3"
+          }
+        },
+        {
+          "client_id": "13399191623-41ra1mj7cqp3nna2129vjbbn9o7rc5ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYS5IN-v2vo7reA05pFn3Sw77TRul4KQY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13399191623-41ra1mj7cqp3nna2129vjbbn9o7rc5ms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
