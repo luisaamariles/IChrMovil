@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkgray">
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/seis"
+        android:id="@+id/siete"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/siete"
+        android:id="@+id/ocho"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ocho"
+        android:id="@+id/nueve"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nueve"
+        android:id="@+id/diez"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/diez"
+        android:id="@+id/once"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/once"
+        android:id="@+id/doce"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/doce"
+        android:id="@+id/trece"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/una"
+        android:id="@+id/catorce"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/dos"
+        android:id="@+id/quince"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/tres"
+        android:id="@+id/dieciseis"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cuatro"
+        android:id="@+id/diecisiete"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cinco"
+        android:id="@+id/dieciocho"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/seisp"
+        android:id="@+id/diecinueve"
+        android:textSize="20sp"
+        android:background="@color/darkgray"/>
+        </LinearLayout>
+</ScrollView>
+</LinearLayout>

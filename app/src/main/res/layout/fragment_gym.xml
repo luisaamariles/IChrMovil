@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.luisaamariles.ichr_movil.GymFragment"
+    android:orientation="vertical"
+    android:background="@color/silver">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/gimnasio"
+            />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="@string/gym"
+                android:gravity="center"
+                android:textSize="22dp"
+                android:textStyle="bold|italic"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="@string/gymdes"
+                android:gravity="center"
+                android:textSize="19dp"
+                android:textStyle="italic"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

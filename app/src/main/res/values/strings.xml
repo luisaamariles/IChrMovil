@@ -1,0 +1,258 @@
+<resources>
+    <string name="app_name">ICh&amp;r_Movil</string>
+    <string name="Log">HOTELS &amp; RESORTS</string>
+    <string name="Name">USUARIO:</string>
+    <string name="Pass">CONTRASEÑA:</string>
+    <string name="bsesion">Iniciar Sesión</string>
+    <string name="registro">Inscribirse</string>
+    <string name="RePass">¿Olvidó su contraseña?</string>
+    <string name="nombre">NOMBRE:</string>
+    <string name="apellido">APELLIDO:</string>
+    <string name="direccion">DIRECCIÓN:</string>
+    <string name="pais">PAIS:</string>
+    <string name="ciudad">CIUDAD:</string>
+    <string name="correo">CORREO:</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="abierto">Open navigation drawer</string>
+    <string name="cerrado">Close navigation drawer</string>
+    <string name="ced">CÉDULA:</string>
+    <string name="tel">TELÉFONO:</string>
+    <string name="prof">PROFESIÓN:</string>
+    <string name="mot">MOTIVO DEL VIAJE:</string>
+    <string name="registrar">Registrar</string>
+    <string name="consulta">Consultar</string>
+    <string name="disp">Disponibles:</string>
+    <string name="fecin">Fecha de ingreso:</string>
+    <string name="fecsa">Fecha de salida:</string>
+    <string name="prec">Precio:</string>
+    <string name="acom">Acomodación:</string>
+    <string name="fecev">Fecha del evento:</string>
+    <string name="hora">Hora del evento:</string>
+    <string name="ub">Ubicación</string>
+
+    
+    <string name="reserva">Reservar</string>
+    <string name="fogon" formatted="false">Es el restaurante insignia del hotel. Su especialidad son las más ricas preparaciones a la piedra y las pizzas a la leña.</string>
+    <string name="brassie" formatted="false">Gran buffet de desayuno, con deliciosos panes, las más exóticas frutas, quesos, jugos, vegetales, sopas, entre otros productos. </string>
+    <string name="cava" formatted="false">Cocina de autor, con especialidad en platos para compartir. Es un lugar para tomar vinos de gran variedad.</string>
+    <string name="spa" formatted="false">SPA,TURCO,SAUNA Y JACUZZI</string>
+    <string name="spades" formatted="false">Disfrute una sesión relajante en el spa del hotel intercontinental Medellín. Después, continúe con una experiencia sensorial pasando por el turco, sauna y jacuzzi.</string>
+    <string name="piscina" formatted="false">LA GRAN PISCINA</string>
+    <string name="piscinades" formattes="false">En un ambiente verde y campestre puede disfrutar de una piscina semiolímpica, ideal para nadar y ejercitarse</string>
+    <string name="mini" formatted="false">Mini Golf</string>
+    <string name="minides" formatted="false">El hotel cuenta con una cancha de mini golf.</string>
+    <string name="tenis" formatted="false">Tenis</string>
+    <string name="tenisdes" formatted="false">El hotel cuenta con dos canchas de tenis, con profesores y cadis.</string>
+    <string name="gym" formatted="false">GIMNASIO</string>
+    <string name="gymdes" formatted="false">Le ofrecemos desde clases con instructores profesionales hasta maquinas individuales para realizar sus propias rutinas de ejercicio.</string>
+    <string name="reg" formatted="false">Para iniciar el registro ingrese los datos</string>
+    <string name="consul" formatted="false">Consulte el estado de sus reservas</string>
+    <string name="cambiar" formatted="false">Ingrese una nueva contraseña</string>
+    <string name="rcambiar" formatted="false">Confirme la contraseña</string>
+    <string-array name="motivo">
+        <item>Negocios</item>
+        <item>Turismo</item>
+        <item>Conferencia</item>
+        <item>Trabajo</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="deshabsupk" formatted="false">Habitación de 28mts² con cama king, aire acondicionado, ventanas antiruido, escritorio y televisor pantalla plana. Además cuenta con clóset, minibar, cajilla de seguridad y baño.</string>
+    <string name="deshabsupt" formatted="false">Habitación de 28mts² con dos camas, aire acondicionado, ventanas antiruido, escritorio y televisor pantalla plana. Además cuenta con clóset, minibar, cajilla de seguridad y baño​​.​</string>
+    <string name="deshabsuppej" formatted="false">Habitación de 28mts² ubicada en el piso ejecutivo, con acceso a la zona VIP que cuenta con servicio en el front desk, sala de reuniones, sala de juntas y una  zona de alimentos. Además cuenta con todas las comodidades de una habitación.</string>
+    <string name="deshabjunk" formatted="false">Habitación de 44mts² con cama king, aire acondicionado, ventanas antiruido, escritorio, sala y televisor pantalla plana. Además cuenta con clóset, minibar, cajilla de seguridad y baño​​.​</string>
+    <string name="deshabjunt" formatted="false">Habitación de 44mts² con dos camas, aire acondicionado, ventanas antiruido, escritorio, sala y televisor pantalla plana. Además cuenta con clóset, minibar, cajilla de seguridad y baño​​.​</string>
+    <string name="desaparta" formatted="false">Apartasuite de 64mts² con cama king, disponibilidad para cama adicional y sala independiente con una cocineta. Además cuenta con aire acondicionado, ventanas antiruido, escritorio, televisor pantalla plana, clóset, minibar, cajilla de seguridad y baño​​.​</string>
+    <string name="desdis" formatted="false">Habitación de 49mts² de dos ambientes con cama king, aire acondicionado, ventanas antiruido, escritorio, sala independiente y televisor pantalla plana. Además cuenta con clóset, minibar, cajilla de seguridad y baño con barandas, amenities, bata de baño, pantuflas y secador de pelo​​.​</string>
+    <string name="dessu" formatted="false">Suite de 49mts² con una sala independiente,  cama king, aire acondicionado, ventanas antiruido, escritorio y dos televisores pantalla plana. Además cuenta con clóset, minibar, cajilla de seguridad y baño con amenities, bata de baño, pantuflas y secador de pelo​​.​</string>
+    <string name="dessupeje" formatted="false">Suite de 55mts² ubicada en el piso ejecutivo, con acceso a la zona VIP que cuenta con servicio en el front desk, sala de reuniones, sala de juntas y una  zona de alimentos. La Suite tiene una sala independiente,  cama king y las demas comodidades de una habitación.</string>
+    <string name="dessuan" formatted="false">Suite de 118mts² de tres espacios ubicada en el piso ejecutivo, con acceso a la zona VIP que cuenta con servicio en el front desk, sala de reuniones, sala de juntas y una  zona de alimentos. La Suite tiene sala comedor, dos baños, habitación con cama king,sala y las demas comodidades de una habitación</string>
+    <string name="dessupre" formatted="false">Suite presidencial de 559mts² de cinco espacios ubicada en el piso ejecutivo, con acceso a la zona VIP que cuenta con servicio en el front desk, sala de reuniones, sala de juntas y una  zona de alimentos. La Suite cuenta con una sala de juntas, sala independiente, cocineta, zona común compuesta por terraza con baños. La habitación principal tiene una cama Extraking y demas comodidades. </string>
+    <string name="habapar" formatted="false">Habitación ApartaSuite</string>
+    <string name="habsuan" formatted="false">Habitación Suite Antioquia</string>
+    <string name="habsupre" formatted="false">Habitación Suite Presidencial</string>
+    <string name="habsueje" formatted="false">Habitación Suite Ejecutiva</string>
+    <string name="habsu" formatted="false">Habitación Suite</string>
+    <string name="habjusuk" formatted="false">Habitación Junior Suite King</string>
+    <string name="habjut" formatted="false">Habitación Junior Twin</string>
+    <string name="habsupk" formatted="false">Habitación Superior King</string>
+    <string name="habsupt" formatted="false">Habitación Superior Twin</string>
+    <string name="habsupeje" formatted="false">Habitación Superior Ejecutiva</string>
+    <string name="habdis" formatted="false">Habitación Discapacitados</string>
+    <string name="salgs" formatted="false">Gran salón</string>
+    <string name="salan" formatted="false">Antioquia</string>
+    <string name="salmed" formatted="false">Medellín</string>
+    <string name="salci" formatted="false">Citará</string>
+    <string name="salep" formatted="false">Eterna Primavera</string>
+    <string name="salgi" formatted="false">Girardot</string>
+    <string name="salsu" formatted="false">Sucre</string>
+    <string name="salco" formatted="false">Córdoba</string>
+    <string name="salbo" formatted="false">Bolivar</string>
+    <string name="salsa" formatted="false">Santander</string>
+    <string name="salca" formatted="false">Capiro</string>
+    <string name="salfa" formatted="false">Farallones</string>
+    <string name="salin" formatted="false">Ingrumá</string>
+    <string name="salla" formatted="false">Las Palmas</string>
+    <string name="salsan" formatted="false">Santafé</string>
+    <string name="cantidad" formatted="false">Cantidad:</string>
+    <string name="seis">6:00 am - 7:00 am</string>
+    <string name="siete">7:00 am - 8:00 am</string>
+    <string name="ocho">8:00 am - 9:00 am</string>
+    <string name="nueve">9:00 am - 10:00 am</string>
+    <string name="diez">10:00 am - 11:00 am</string>
+    <string name="once">11:00 am - 12:00 am</string>
+    <string name="doce">12:00 m - 1:00 pm</string>
+    <string name="una">1:00 pm - 2:00 pm</string>
+    <string name="dos">2:00 pm - 3:00 pm</string>
+    <string name="tres">3:00 pm - 4:00 pm</string>
+    <string name="cuatro">4:00 pm - 5:00 pm</string>
+    <string name="cinco">5:00 pm - 6:00 pm</string>
+    <string name="seisp">6:00 pm - 7:00 pm</string>
+
+    <string name="gsar" formatted="false">Área:941,7 m²</string>
+    <string name="anar" formatted="false">Área:447,9 m²</string>
+    <string name="medar" formatted="false">Área:200 m²</string>
+    <string name="ciar" formatted="false">Área:219 m²</string>
+    <string name="epar" formatted="false">Área:202 m²</string>
+    <string name="girar" formatted="false">Área:107,3 m²</string>
+    <string name="suar" formatted="false">Área:93,6 m²</string>
+    <string name="coar" formatted="false">Área:104,9 m²</string>
+    <string name="boar" formatted="false">Área:88,8 m²</string>
+    <string name="saar" formatted="false">Área:88,8 m²</string>
+    <string name="caar" formatted="false">Área:49 m²</string>
+    <string name="faar" formatted="false">Área:49 m²</string>
+    <string name="inar" formatted="false">Área:49 m²</string>
+    <string name="lpar" formatted="false">Área:32,2 m²</string>
+    <string name="santar" formatted="false">Área:32,2 m²</string>
+
+    <string name="gsal" formatted="false">Altura:4,4 m</string>
+    <string name="anal" formatted="false">Altura:4,4 m</string>
+    <string name="medal" formatted="false">Altura:3,1 m</string>
+    <string name="cial" formatted="false">Altura:2,4 m</string>
+    <string name="epal" formatted="false">Altura:2,4 m</string>
+    <string name="giral" formatted="false">Altura:2,60/3,10 m</string>
+    <string name="sual" formatted="false">Altura:2,60/3,10 m</string>
+    <string name="coal" formatted="false">Altura:2,6 m</string>
+    <string name="boal" formatted="false">Altura:2,6 m</string>
+    <string name="saal" formatted="false">Altura:2,6 m</string>
+    <string name="caal" formatted="false">Altura:2,56 m</string>
+    <string name="faal" formatted="false">Altura:2,56 m</string>
+    <string name="inal" formatted="false">Altura:2,56 m</string>
+    <string name="lpal" formatted="false">Altura:2,55 m</string>
+    <string name="santal" formatted="false">Altura:2,55 m</string>
+
+    <string name="gsu" formatted="false">U:120 </string>
+    <string name="anu" formatted="false">U:90 </string>
+    <string name="medu" formatted="false">U:60 </string>
+    <string name="ciu" formatted="false">U:60 </string>
+    <string name="epu" formatted="false">U:-- </string>
+    <string name="giru" formatted="false">U:40 </string>
+    <string name="suu" formatted="false">U:35 </string>
+    <string name="cou" formatted="false">U:35 </string>
+    <string name="bou" formatted="false">U:35 </string>
+    <string name="sau" formatted="false">U:35 </string>
+    <string name="cau" formatted="false">U:21 </string>
+    <string name="fau" formatted="false">U:21 </string>
+    <string name="inu" formatted="false">U:21 </string>
+    <string name="lpu" formatted="false">U:15 </string>
+    <string name="santu" formatted="false">U:15 </string>
+
+    <string name="gsau" formatted="false">Auditorio:1200 </string>
+    <string name="anau" formatted="false">Auditorio:600 </string>
+    <string name="medau" formatted="false">Auditorio:220 </string>
+    <string name="ciau" formatted="false">Auditorio:210 </string>
+    <string name="epau" formatted="false">Auditorio:-- </string>
+    <string name="girau" formatted="false">Auditorio:120 </string>
+    <string name="suau" formatted="false">Auditorio:110 </string>
+    <string name="coau" formatted="false">Auditorio:100 </string>
+    <string name="boau" formatted="false">Auditorio:100 </string>
+    <string name="saau" formatted="false">Auditorio:100 </string>
+    <string name="caau" formatted="false">Auditorio:50 </string>
+    <string name="faau" formatted="false">Auditorio:50 </string>
+    <string name="inau" formatted="false">Auditorio:50 </string>
+    <string name="lpau" formatted="false">Auditorio:15 </string>
+    <string name="santau" formatted="false">Auditorio:15 </string>
+
+    <string name="gses" formatted="false">Espina:360 </string>
+    <string name="anes" formatted="false">Espina:250 </string>
+    <string name="medes" formatted="false">Espina:100 </string>
+    <string name="cies" formatted="false">Espina:100</string>
+    <string name="epes" formatted="false">Espina:-- </string>
+    <string name="gires" formatted="false">Espina:40 </string>
+    <string name="sues" formatted="false">Espina:40 </string>
+    <string name="coes" formatted="false">Espina:35 </string>
+    <string name="boes" formatted="false">Espina:35 </string>
+    <string name="saes" formatted="false">Espina:35 </string>
+    <string name="caes" formatted="false">Espina:15 </string>
+    <string name="faes" formatted="false">Espina:15 </string>
+    <string name="ines" formatted="false">Espina:15 </string>
+    <string name="lpes" formatted="false">Espina:15 </string>
+    <string name="santes" formatted="false">Espina:14 </string>
+
+    <string name="gsaul" formatted="false">Aula:400 </string>
+    <string name="anaul" formatted="false">Aula:260 </string>
+    <string name="medaul" formatted="false">Aula:110 </string>
+    <string name="ciaul" formatted="false">Aula:110 </string>
+    <string name="epaul" formatted="false">Aula:-- </string>
+    <string name="giraul" formatted="false">Aula:50 </string>
+    <string name="suaul" formatted="false">Aula:50 </string>
+    <string name="coaul" formatted="false">Aula:40 </string>
+    <string name="boaul" formatted="false">Aula:40 </string>
+    <string name="saaul" formatted="false">Aula:40 </string>
+    <string name="caaul" formatted="false">Aula:21 </string>
+    <string name="faaul" formatted="false">Aula:21 </string>
+    <string name="inaul" formatted="false">Aula:21 </string>
+    <string name="lpaul" formatted="false">Aula:15 </string>
+    <string name="santaul" formatted="false">Aula:15 </string>
+
+    <string name="gsco" formatted="false">Coctel:1600 </string>
+    <string name="anco" formatted="false">Coctel:600 </string>
+    <string name="medco" formatted="false">Coctel:220 </string>
+    <string name="cico" formatted="false">Coctel:220 </string>
+    <string name="epco" formatted="false">Coctel:140</string>
+    <string name="girco" formatted="false">Coctel:60 </string>
+    <string name="suco" formatted="false">Coctel:60 </string>
+    <string name="coco" formatted="false">Coctel:50 </string>
+    <string name="boco" formatted="false">Coctel:50 </string>
+    <string name="saco" formatted="false">Coctel:50 </string>
+    <string name="caco" formatted="false">Coctel:40 </string>
+    <string name="faco" formatted="false">Coctel:40 </string>
+    <string name="inco" formatted="false">Coctel:40 </string>
+    <string name="lpco" formatted="false">Coctel:20 </string>
+    <string name="santco" formatted="false">Coctel:20 </string>
+
+    <string name="gsim" formatted="false">Imperial:120 </string>
+    <string name="anim" formatted="false">Imperial:90 </string>
+    <string name="medim" formatted="false">Imperial:60 </string>
+    <string name="ciim" formatted="false">Imperial:60 </string>
+    <string name="epim" formatted="false">Imperial:-- </string>
+    <string name="girim" formatted="false">Imperial:40 </string>
+    <string name="suim" formatted="false">Imperial:35 </string>
+    <string name="coim" formatted="false">Imperial:35 </string>
+    <string name="boim" formatted="false">Imperial:35 </string>
+    <string name="saim" formatted="false">Imperial:35 </string>
+    <string name="caim" formatted="false">Imperial:20 </string>
+    <string name="faim" formatted="false">Imperial:20 </string>
+    <string name="inim" formatted="false">Imperial:20 </string>
+    <string name="lpim" formatted="false">Imperial:15 </string>
+    <string name="santim" formatted="false">Imperial:15 </string>
+
+    <string name="gsba" formatted="false">Banquete:700 </string>
+    <string name="anba" formatted="false">Banquete:260 </string>
+    <string name="medba" formatted="false">Banquete:120 </string>
+    <string name="ciba" formatted="false">Banquete:140 </string>
+    <string name="epba" formatted="false">Banquete:80 </string>
+    <string name="girba" formatted="false">Banquete:60 </string>
+    <string name="suba" formatted="false">Banquete:50 </string>
+    <string name="coba" formatted="false">Banquete:50 </string>
+    <string name="boba" formatted="false">Banquete:50 </string>
+    <string name="saba" formatted="false">Banquete:50 </string>
+    <string name="caba" formatted="false">Banquete:30 </string>
+    <string name="faba" formatted="false">Banquete:30 </string>
+    <string name="inba" formatted="false">Banquete:30 </string>
+    <string name="lpba" formatted="false">Banquete:15 </string>
+    <string name="santba" formatted="false">Banquete:15 </string>
+
+
+</resources>
