@@ -10,10 +10,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@drawable/corredor">
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:src="@drawable/logo"
         android:layout_gravity="center"/>
     <LinearLayout
@@ -26,7 +34,7 @@
         android:text="@string/Log"
         android:id="@+id/log"
         android:gravity="center"
-        android:textSize="13sp"
+        android:textSize="12sp"
         android:textStyle="italic"
         android:textColor="@color/black" />
     <LinearLayout
@@ -45,7 +53,7 @@
         android:text="@string/nombre"
         android:id="@+id/nombre"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold|italic"
         android:textColor="@color/black"
         />
@@ -57,7 +65,7 @@
         android:textStyle="italic"
         android:id="@+id/eNombre"
         android:textColor="@color/black"
-        android:textSize="19sp"/>
+        android:textSize="18sp"/>
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,7 +78,7 @@
             android:text="@string/apellido"
             android:id="@+id/apellido"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
@@ -82,7 +90,7 @@
             android:textStyle="italic"
             android:id="@+id/eApellido"
             android:textColor="@color/black"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,7 +103,7 @@
             android:text="@string/direccion"
             android:id="@+id/direccion"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
@@ -107,7 +115,7 @@
             android:textStyle="italic"
             android:id="@+id/eDireccion"
             android:textColor="@color/black"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -120,7 +128,7 @@
             android:text="@string/pais"
             android:id="@+id/pais"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
@@ -132,7 +140,7 @@
             android:textStyle="italic"
             android:id="@+id/ePais"
             android:textColor="@color/black"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -145,7 +153,7 @@
             android:text="@string/ciudad"
             android:id="@+id/ciudad"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
@@ -157,7 +165,7 @@
             android:textStyle="italic"
             android:id="@+id/eCiudad"
             android:textColor="@color/black"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -170,7 +178,7 @@
             android:text="@string/correo"
             android:id="@+id/correo"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
@@ -182,9 +190,33 @@
             android:textStyle="italic"
             android:id="@+id/eCorreo"
             android:textColor="@color/black"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usuario"
+            android:id="@+id/usuario"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="18"
+            android:singleLine="true"
+            android:textStyle="italic"
+            android:id="@+id/eUsuario"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -196,7 +228,7 @@
             android:text="@string/Pass"
             android:id="@+id/contrasena"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
@@ -209,7 +241,7 @@
             android:textStyle="italic"
             android:id="@+id/eContrasena"
             android:textColor="@color/black"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -222,7 +254,7 @@
             android:text="@string/Pass"
             android:id="@+id/RContrasena"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
@@ -235,7 +267,7 @@
             android:inputType="textPassword"
             android:id="@+id/eRContrasena"
             android:textColor="@color/black"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -248,15 +280,16 @@
             android:layout_height="wrap_content"
             android:hint="@string/aceptar"
             android:id="@+id/bAceptar"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
         <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="@string/cancelar"
             android:id="@+id/bCancelar"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
         />
     </LinearLayout>
 
-
+</LinearLayout>
+    </ScrollView>
 </LinearLayout>

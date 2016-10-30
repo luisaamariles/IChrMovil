@@ -21,6 +21,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
     EditText Name,Pass;
     Button bSesion;
     String Nombre,Contrasena, Mail;
+    Integer idh,idr;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,22 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
         bSesion = (Button) findViewById(R.id.bIsesion);
         bSesion.setOnClickListener(this);
 
+        prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        editor=prefs.edit();
+        if(prefs.getInt("var2",-1)==1){
+
+        }else {
+            idh=0;
+            editor.putString("idh", idh.toString());
+            editor.commit();
+        }
+        if(prefs.getInt("var3",-1)==1){
+
+        }else {
+            idr=0;
+            editor.putString("idr", idr.toString());
+            editor.commit();
+        }
         /*if(prefs.getInt("var",-1)==1){
             Intent intent = new Intent(this, NavActivity.class);
             intent.putExtra("Name",prefs.getString("nombre",""));

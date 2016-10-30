@@ -17,9 +17,9 @@ import com.firebase.client.Firebase;
  * Created by Luisa Maria Amariles on 20/10/2016.
  */
 public class RegistroActivity extends AppCompatActivity implements View.OnClickListener {
-    String nombreu, apellido, direccion, pais, ciudad, correo, contrasena, rcontrasena, id;
+    String nombreu, apellido, direccion, pais, ciudad, correo, nusuario, contrasena, rcontrasena, id;
     Button bAceptar, bCancelar;
-    EditText eNombreu, eApellido, eDireccion, ePais, eCiudad, eCorreo, eContrasena, eRcontrasena;
+    EditText eNombreu, eApellido, eDireccion, ePais, eCiudad, eCorreo,eUsuario, eContrasena, eRcontrasena;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     Integer id2;
@@ -47,6 +47,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         ePais = (EditText) findViewById(R.id.ePais);
         eCiudad = (EditText) findViewById(R.id.eCiudad);
         eCorreo = (EditText) findViewById(R.id.eCorreo);
+        eUsuario= (EditText) findViewById(R.id.eUsuario);
         eContrasena = (EditText) findViewById(R.id.eContrasena);
         eRcontrasena= (EditText) findViewById(R.id.eRContrasena);
         bAceptar = (Button) findViewById(R.id.bAceptar);
@@ -65,16 +66,18 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         pais=ePais.getText().toString();
         ciudad=eCiudad.getText().toString();
         correo=eCorreo.getText().toString();
+        nusuario=eUsuario.getText().toString();
         contrasena=eContrasena.getText().toString();
         rcontrasena=eRcontrasena.getText().toString();
 
         switch (v.getId()) {
             case R.id.bAceptar:
-                firebd = firebasedatos.child("usuario "+id2);
-                Usuario usuario = new Usuario(nombreu,apellido,direccion,pais,ciudad,correo,contrasena,String.valueOf(id2));
+                firebd = firebasedatos.child("usuario").child("usuario "+ nusuario);
+                UsuarioBD usuario = new UsuarioBD(nombreu,apellido,direccion,pais,ciudad,correo,nusuario,contrasena,String.valueOf(id2));
                 firebd.setValue(usuario);
                 id2++;
                 editor.putString("id",id2.toString());
+                editor.putInt("var",1);
                 editor.commit();
                 if(prefs.getInt("var",-1)==1){
                     Toast.makeText(this,"hola",Toast.LENGTH_SHORT).show();

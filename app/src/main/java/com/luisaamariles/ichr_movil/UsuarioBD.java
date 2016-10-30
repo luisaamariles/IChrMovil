@@ -3,18 +3,19 @@ package com.luisaamariles.ichr_movil;
 /**
  * Created by Luisa Maria Amariles on 28/10/2016.
  */
-public class Usuario {
-    private String nombre, apellido, direccion, pais, ciudad, correo, contrasena, id;
+public class UsuarioBD {
+    private String nombre, apellido, direccion, pais, ciudad, correo,usuario, contrasena, id;
 
-    public Usuario() {
+    public UsuarioBD() {
     }
-    public Usuario(String nombre, String apellido, String direccion, String pais, String ciudad,String correo, String contrasena, String id) {
+    public UsuarioBD(String nombre, String apellido, String direccion, String pais, String ciudad, String correo, String usuario, String contrasena, String id) {
         this.nombre = nombre;
         this.apellido= apellido;
         this.direccion = direccion;
         this.pais= pais;
         this.ciudad= ciudad;
         this.correo= correo;
+        this.usuario=usuario;
         this.contrasena= contrasena;
         this.id = id;
     }
@@ -36,6 +37,8 @@ public class Usuario {
     public String getCiudad() { return ciudad;}
 
     public  String getCorreo() { return correo;}
+
+    public String getUsuario() {return usuario;}
 
     public  String getContrasena() { return contrasena;}
 

@@ -16,7 +16,7 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] opciones = new String[]{"Habitaciones", "Restaurantes", "Salas","Spa", "Cancha", "Consulta", "Promociones", "Ubicacion"};
+    private String[] opciones = new String[]{"Información general", "Consulta reservas", "Promociones", "Ubicacion", "Cerrar sesión"};
     private DrawerLayout drawerLayout;
     private ListView listView;
     private ActionBarDrawerToggle drawerToggle;
