@@ -22,6 +22,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
     Button bSesion;
     String Nombre,Contrasena, Mail;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);

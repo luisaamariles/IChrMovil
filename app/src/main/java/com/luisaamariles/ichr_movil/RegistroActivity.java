@@ -1,12 +1,15 @@
 package com.luisaamariles.ichr_movil;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
@@ -14,10 +17,13 @@ import com.firebase.client.Firebase;
  * Created by Luisa Maria Amariles on 20/10/2016.
  */
 public class RegistroActivity extends AppCompatActivity implements View.OnClickListener {
-    String nombreu, apellido, direccion, pais, ciudad, correo, contrasena, rcontrasena;
+    String nombreu, apellido, direccion, pais, ciudad, correo, contrasena, rcontrasena, id;
     Button bAceptar, bCancelar;
-    Integer id=0;
     EditText eNombreu, eApellido, eDireccion, ePais, eCiudad, eCorreo, eContrasena, eRcontrasena;
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
+    Integer id2;
+
 
     private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
     private Firebase firebasedatos;
@@ -29,6 +35,9 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         Firebase.setAndroidContext(this);
         firebasedatos = new Firebase(FIREBASE_URL);
+
+        prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        editor=prefs.edit();
 
         getSupportActionBar().hide();
 
@@ -44,6 +53,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         bAceptar.setOnClickListener(this);
         bCancelar = (Button) findViewById(R.id.bCancelar);
         bCancelar.setOnClickListener(this);
+        id=prefs.getString("id","");
+        id2= Integer.parseInt(id);
     }
 
     public void onClick(View v) {
@@ -56,12 +67,21 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         correo=eCorreo.getText().toString();
         contrasena=eContrasena.getText().toString();
         rcontrasena=eRcontrasena.getText().toString();
+
         switch (v.getId()) {
             case R.id.bAceptar:
-                firebd = firebasedatos.child("usuario "+id);
-                Usuario usuario = new Usuario(nombreu,apellido,direccion,pais,ciudad,correo,contrasena,String.valueOf(id));
+                firebd = firebasedatos.child("usuario "+id2);
+                Usuario usuario = new Usuario(nombreu,apellido,direccion,pais,ciudad,correo,contrasena,String.valueOf(id2));
                 firebd.setValue(usuario);
-                id++;
+                id2++;
+                editor.putString("id",id2.toString());
+                editor.commit();
+                if(prefs.getInt("var",-1)==1){
+                    Toast.makeText(this,"hola",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this,"vali",Toast.LENGTH_SHORT).show();
+                }
+
                 Intent intent = new Intent(this, LogginActivity.class);
                 startActivity(intent);
                 break;
