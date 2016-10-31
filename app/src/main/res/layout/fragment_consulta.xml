@@ -65,8 +65,9 @@
             android:orientation="horizontal"
             />
         <Button
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:background="@color/darkgoldenrod"
             android:text="@string/consulta"
             android:gravity="center"
             android:textSize="18dp"

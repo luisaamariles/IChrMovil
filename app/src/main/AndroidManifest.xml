@@ -33,6 +33,8 @@
         <activity android:name=".SalDesActivity"/>
         <activity android:name=".HabResActivity"/>
         <activity android:name=".SalResActivity"/>
+        <activity android:name=".InfoActivity"/>
+        <activity android:name=".InfoConsActivity"/>
 
     </application>
 

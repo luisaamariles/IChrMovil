@@ -40,48 +40,31 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Fragment fragment = null;
                 switch (i) {
+
                     case (0):
-                        Intent intentp = new Intent(MainActivity.this, HabitacionesActivity.class);
-                        startActivity(intentp);
-                        finish();
-                        break;
-                    case (1):
-                        Intent intent = new Intent(MainActivity.this, RestaurantesActivity.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-                    case (2):
-                        Intent intent2 = new Intent(MainActivity.this, SalasActivity.class);
-                        startActivity(intent2);
-                        finish();
-                        break;
-                    case (3):
-                        Intent intent3 = new Intent(MainActivity.this, SpaActivity.class);
-                        startActivity(intent3);
-                        finish();
-                        break;
-                    case (4):
-                        Intent intent4 = new Intent(MainActivity.this, CanchasActivity.class);
+                        Intent intent4 = new Intent(MainActivity.this, InfoActivity.class);
                         startActivity(intent4);
                         finish();
                         break;
-                    case (5):
+                    case (1):
                         Intent intent5 = new Intent(MainActivity.this, ReservasActivity.class);
                         startActivity(intent5);
                         finish();
                         break;
-                    case (6):
+                    case (2):
                         Intent intent6 = new Intent(MainActivity.this, PromocionActivity.class);
                         startActivity(intent6);
                         finish();
                         break;
-                    case (7):
+                    case (3):
                         Intent intent7 = new Intent(MainActivity.this, UbicacionActivity.class);
                         startActivity(intent7);
                         finish();
                         break;
+                    case (4):
+                        break;
                 }
-                if (i == 8) {
+                if (i == 5) {
                     android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.contenedorFrame, fragment).commit();
 

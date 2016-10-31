@@ -191,9 +191,9 @@
             android:layout_height="20dp"
             />
     <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="@string/reserva"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/reserva"
         android:gravity="center"
         android:textSize="18dp"
         android:textStyle="italic"
