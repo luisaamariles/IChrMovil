@@ -1,16 +1,15 @@
 package com.luisaamariles.ichr_movil;
 
 /**
- * Created by Luisa Maria Amariles on 30/10/2016.
+ * Created by Luisa Maria Amariles on 31/10/2016.
  */
-public class ReservaHab {
-    private String nombre, estado, numhab, fechain, fechasal, precio, id;
+public class ReservaHabBD {
+    private String usuario, numhab, fechain, fechasal, precio, id;
 
-    public ReservaHab() {
+    public ReservaHabBD() {
     }
-    public ReservaHab(String nombre, String estado, String numhab, String fechain, String fechasal,String precio, String id) {
-        this.nombre = nombre;
-        this.estado= estado;
+    public ReservaHabBD(String usuario, String numhab, String fechain, String fechasal, String precio, String id) {
+        this.usuario = usuario;
         this.numhab = numhab;
         this.fechain= fechain;
         this.fechasal= fechasal;
@@ -18,12 +17,8 @@ public class ReservaHab {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getEstado() {
-        return estado;
+    public String getUsuario() {
+        return usuario;
     }
 
     public String getNumhab() {

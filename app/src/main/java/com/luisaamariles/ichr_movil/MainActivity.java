@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         break;
                     case (4):
+                        Intent intent8 = new Intent(MainActivity.this, LogginActivity.class);
+                        startActivity(intent8);
+                        finish();
+
                         break;
                 }
                 if (i == 5) {

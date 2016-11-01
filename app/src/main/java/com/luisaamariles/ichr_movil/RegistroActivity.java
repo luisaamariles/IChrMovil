@@ -79,11 +79,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 editor.putString("id",id2.toString());
                 editor.putInt("var",1);
                 editor.commit();
-                if(prefs.getInt("var",-1)==1){
-                    Toast.makeText(this,"hola",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(this,"vali",Toast.LENGTH_SHORT).show();
-                }
+
+                Toast.makeText(this,"Registrado!",Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(this, LogginActivity.class);
                 startActivity(intent);

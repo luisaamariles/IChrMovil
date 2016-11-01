@@ -12,16 +12,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
+
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+
 
 /**
  * Created by Luisa Maria Amariles on 24/10/2016.
  */
 public class HabResActivity extends AppCompatActivity implements View.OnClickListener{
-    String Nombre, idh, nombre, estado, numhab, fechain, fechasal, precio, id;;
+    String Nombre, idh, nombre, usuario, numhab, fechain, fechasal, precio, id;
     TextView Nomb;
     Button Reserva;
     SharedPreferences prefs;
@@ -40,8 +39,8 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         Firebase.setAndroidContext(this);
         firebasedatos = new Firebase(FIREBASE_URL);
 
-        prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        editor=prefs.edit();
+        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        editor = prefs.edit();
 
         Nomb = (TextView) findViewById(R.id.nomhab);
         Bundle extras = getIntent().getExtras();
@@ -50,23 +49,8 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         Reserva = (Button) findViewById(R.id.Reservar);
         Reserva.setOnClickListener(this);
 
-        idh=prefs.getString("idh","");
-        idh2= Integer.parseInt(idh);
-        Firebase firebd;
-        final String data= "ReservaHab";
-        firebasedatos.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(data).child(Nombre).exists()){
-                    Log.d("datos",dataSnapshot.child(data).getValue().toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+        idh = prefs.getString("idh", "");
+        idh2 = Integer.parseInt(idh);
 
     }
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -80,7 +64,19 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
     public void onClick(View v) {
-
+        Firebase firebd;
+        usuario="daniela";
+        numhab="201";
+        fechain="12/11/16";
+        fechasal="12/12/16";
+        precio="$200.000";
+        idh2++;
+        editor.putString("idh",idh2.toString());
+        editor.putInt("var2",1);
+        editor.commit();
+        firebd = firebasedatos.child("Reservas").child("reservahab"+idh2+" "+usuario);
+        ReservaHabBD reservahab = new ReservaHabBD(usuario,numhab,fechain,fechasal,precio,String.valueOf(idh2));
+        firebd.setValue(reservahab);
 
         Toast.makeText(this,"Reservado!", Toast.LENGTH_SHORT).show();
     }

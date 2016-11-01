@@ -21,7 +21,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
     EditText Name,Pass;
     Button bSesion;
     String Nombre,Contrasena, Mail;
-    Integer idh,idr;
+    Integer idh,idr,ids,idg;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,20 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
         }else {
             idr=0;
             editor.putString("idr", idr.toString());
+            editor.commit();
+        }
+        if(prefs.getInt("var4",-1)==1){
+
+        }else {
+            ids=0;
+            editor.putString("ids", ids.toString());
+            editor.commit();
+        }
+        if(prefs.getInt("var5",-1)==1){
+
+        }else {
+            idg=0;
+            editor.putString("idg", idg.toString());
             editor.commit();
         }
         /*if(prefs.getInt("var",-1)==1){

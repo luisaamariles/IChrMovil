@@ -98,7 +98,7 @@ public class RegistroFragment extends Fragment implements View.OnClickListener{
                 correo=eCorreor.getText().toString();
                 profesion=eProfesion.getText().toString();
                 motivo=selected;
-                firebd = firebasedatos.child("Registro").child("reguistro "+ cedula);
+                firebd = firebasedatos.child("Registro").child("registro "+ cedula);
                 RegistroBD registro = new RegistroBD(nombre,apellido,cedula,telefono,direccion,correo,profesion,motivo,String.valueOf(idr2));
                 firebd.setValue(registro);
                 idr2++;
