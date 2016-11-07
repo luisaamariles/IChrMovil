@@ -35,6 +35,7 @@ public class SpaFragment extends Fragment implements View.OnClickListener{
     }
     public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ReservaGenActivity.class);
+                intent.putExtra("cancha","Spa");
                 startActivity(intent);
 
     }

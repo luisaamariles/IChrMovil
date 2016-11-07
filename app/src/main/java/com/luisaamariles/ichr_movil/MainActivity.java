@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         break;
                     case (3):
-                        Intent intent7 = new Intent(MainActivity.this, UbicacionActivity.class);
+                        Intent intent7 = new Intent(MainActivity.this, MapsActivity.class);
                         startActivity(intent7);
                         finish();
                         break;

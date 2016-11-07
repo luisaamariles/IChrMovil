@@ -36,10 +36,12 @@ public class CanchasFragment extends Fragment implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.Reservat:
                 Intent intent = new Intent(getActivity(), ReservaGenActivity.class);
+                intent.putExtra("cancha","Tenis");
                 startActivity(intent);
                 break;
             case R.id.Reservag:
                 Intent intent2 = new Intent(getActivity(), ReservaGenActivity.class);
+                intent2.putExtra("cancha", "Mini Golf");
                 startActivity(intent2);
                 break;
         }

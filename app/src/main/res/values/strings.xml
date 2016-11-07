@@ -32,7 +32,7 @@
     <string name="ub">Ubicación</string>
     <string name="usuario">USUARIO:</string>
     <string name="cancelarr">Cancelar reserva:</string>
-    
+
     <string name="reserva">Reservar</string>
     <string name="fogon" formatted="false">Es el restaurante insignia del hotel. Su especialidad son las más ricas preparaciones a la piedra y las pizzas a la leña.</string>
     <string name="brassie" formatted="false">Gran buffet de desayuno, con deliciosos panes, las más exóticas frutas, quesos, jugos, vegetales, sopas, entre otros productos. </string>
@@ -254,6 +254,7 @@
     <string name="inba" formatted="false">Banquete:30 </string>
     <string name="lpba" formatted="false">Banquete:15 </string>
     <string name="santba" formatted="false">Banquete:15 </string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

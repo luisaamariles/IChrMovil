@@ -11,7 +11,12 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by Luisa Maria Amariles on 24/10/2016.
@@ -19,13 +24,14 @@ import com.firebase.client.Firebase;
 public class ReservaGenActivity extends AppCompatActivity implements View.OnClickListener{
     Button seis,siete,ocho,nueve,diez,once,doce,una,dos,tres,cuatro,cinco,seis1,seisc,sietec,ochoc,nuevec,diezc,oncec,docec,unac, dosc, tresc,cuatroc, cincoc,seis1c;
 
-    String idg,usuario, tipo, hora, precio, id;
+    String idg,usuario, tipo, hora, precio, id,Nombre;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     Integer idg2;
 
     private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
     private Firebase firebasedatos;
+    ArrayList<CanchaBD> info;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +40,20 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Firebase.setAndroidContext(this);
-        firebasedatos = new Firebase(FIREBASE_URL);
+
 
         prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         editor = prefs.edit();
 
+        Bundle extras = getIntent().getExtras();
+        Nombre = extras.getString("cancha");
+        if(Nombre.equals("Tenis")){
+            firebasedatos = new Firebase(FIREBASE_URL).child("Cancha").child("Tenis");
+        }else if(Nombre.equals("Mini Golf")){
+            firebasedatos = new Firebase(FIREBASE_URL).child("Cancha").child("Mini Golf");
+        }else if(Nombre.equals("Spa")){
+            firebasedatos = new Firebase(FIREBASE_URL).child("Spa");
+        }
         seis = (Button) findViewById(R.id.sietea);
         seis.setOnClickListener(this);
         seisc = (Button) findViewById(R.id.siete);
@@ -94,6 +109,25 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
 
         idg = prefs.getString("idg", "");
         idg2 = Integer.parseInt(idg);
+
+        info = new ArrayList<CanchaBD>();
+
+        Firebase firebd;
+        final String code = "7";
+        firebasedatos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(code).exists()){
+                    info.add(dataSnapshot.child("7").getValue(CanchaBD.class));
+                    Log.d("data",dataSnapshot.child(code).getValue().toString());
+                    Toast.makeText(ReservaGenActivity.this,info.get(0).getEstado(),Toast.LENGTH_SHORT).show();
+
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
