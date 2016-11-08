@@ -43,11 +43,13 @@ public class MapsActivity extends MainActivity implements OnMapReadyCallback {
             AlertDialog.Builder ad = new AlertDialog.Builder(this);
             ad.setTitle("Importante");
             ad.setMessage("Para obtener su ubicación debe activar el GPS");
-            ad.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+           /* ad.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
                 }
-            });
+            });*/
+            ad.setPositiveButton("Ok",null);
+            ad.create();
             ad.show();
         }
     }
