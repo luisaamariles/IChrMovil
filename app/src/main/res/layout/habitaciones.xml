@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/pager"
     tools:context=".HabitacionesActivity"
-    android:background="@color/silver">
+    android:background="@color/silver"
+    android:screenOrientation="landscape">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

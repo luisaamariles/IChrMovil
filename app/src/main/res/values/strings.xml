@@ -1,4 +1,5 @@
 <resources>
+    <string name="facebook_app_id">118839481925847</string>
     <string name="app_name">ICh&amp;r_Movil</string>
     <string name="Log">HOTELS &amp; RESORTS</string>
     <string name="Name">USUARIO:</string>

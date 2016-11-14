@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:screenOrientation="landscape">
 
     <ImageView android:id="@+id/imagenLogo"
         android:layout_width="250dp"

@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/contenedorPrincipal"
-    android:background="@drawable/fuera"
-    tools:context=".MainActivity">
+    android:background="@drawable/main"
+    tools:context=".MainActivity"
+    android:screenOrientation="landscape">
 
     <FrameLayout
         android:layout_width="match_parent"

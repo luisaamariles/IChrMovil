@@ -14,15 +14,23 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
-    private String[] opciones = new String[]{"Información general", "Consulta reservas", "Promociones", "Ubicacion", "Cerrar sesión"};
+    private String[] opciones = new String[]{"Información general", "Consulta reservas", "Promociones", "Ubicacion","Mi perfil", "Cerrar sesión"};
     private DrawerLayout drawerLayout;
     private ListView listView;
     private ActionBarDrawerToggle drawerToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -62,13 +70,21 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         break;
                     case (4):
-                        Intent intent8 = new Intent(MainActivity.this, LogginActivity.class);
-                        startActivity(intent8);
+                        Intent intent9 = new Intent(MainActivity.this, MiperfilActivity.class);
+                        startActivity(intent9);
                         finish();
 
                         break;
+                    case (5):
+                        LoginManager.getInstance().logOut();
+                        FirebaseAuth.getInstance().signOut();
+                        goLoginActivity();
+                        Intent intent8 = new Intent(MainActivity.this, LogginActivity.class);
+                        startActivity(intent8);
+                        finish();
+                        break;
                 }
-                if (i == 5) {
+                if (i == 6) {
                     android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.contenedorFrame, fragment).commit();
 
@@ -80,6 +96,23 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.abierto, R.string.cerrado);
 
         drawerLayout.setDrawerListener(drawerToggle);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user==null){
+            goLoginActivity();
+        }
+    }
+    public void logout(View view){
+        LoginManager.getInstance().logOut();
+        FirebaseAuth.getInstance().signOut();
+        goLoginActivity();
+    }
+
+    private void goLoginActivity() {
+        Intent intent = new Intent (getApplicationContext(), LogginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/pager2"
     tools:context=".RestaurantesActivity"
-    android:background="@color/silver">
+    android:background="@color/silver"
+    android:screenOrientation="landscape">
 
 </android.support.v4.view.ViewPager>

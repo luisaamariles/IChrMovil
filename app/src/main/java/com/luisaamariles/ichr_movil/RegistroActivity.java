@@ -11,7 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Created by Luisa Maria Amariles on 20/10/2016.
@@ -43,9 +49,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         eNombreu = (EditText) findViewById(R.id.eNombre);
         eApellido = (EditText) findViewById(R.id.eApellido);
-        eDireccion = (EditText) findViewById(R.id.eDireccion);
         ePais = (EditText) findViewById(R.id.ePais);
-        eCiudad = (EditText) findViewById(R.id.eCiudad);
         eCorreo = (EditText) findViewById(R.id.eCorreo);
         eUsuario= (EditText) findViewById(R.id.eUsuario);
         eContrasena = (EditText) findViewById(R.id.eContrasena);
@@ -56,38 +60,75 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         bCancelar.setOnClickListener(this);
         id=prefs.getString("id","");
         id2= Integer.parseInt(id);
+        firebasedatos.addValueEventListener(new ValueEventListener() {
+            @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        if(dataSnapshot.child("Usuarios").exists()){
+            Intent intent = new Intent (getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                    Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent (getApplicationContext(), RegistroActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                    Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    }
+    @Override
+    public void onCancelled(FirebaseError firebaseError) {
+    }
+});
     }
 
     public void onClick(View v) {
-        Firebase firebd;
-        nombreu=eNombreu.getText().toString();
-        apellido=eApellido.getText().toString();
-        direccion=eDireccion.getText().toString();
-        pais=ePais.getText().toString();
-        ciudad=eCiudad.getText().toString();
-        correo=eCorreo.getText().toString();
-        nusuario=eUsuario.getText().toString();
-        contrasena=eContrasena.getText().toString();
-        rcontrasena=eRcontrasena.getText().toString();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         switch (v.getId()) {
+
             case R.id.bAceptar:
-                firebd = firebasedatos.child("usuario").child("usuario "+ nusuario);
-                UsuarioBD usuario = new UsuarioBD(nombreu,apellido,direccion,pais,ciudad,correo,nusuario,contrasena,String.valueOf(id2));
-                firebd.setValue(usuario);
-                id2++;
-                editor.putString("id",id2.toString());
-                editor.putInt("var",1);
-                editor.commit();
+                Firebase firebd;
+                nombreu=eNombreu.getText().toString();
+                apellido=eApellido.getText().toString();
+                pais=ePais.getText().toString();
+                correo=eCorreo.getText().toString();
+                nusuario=eUsuario.getText().toString();
+                contrasena=eContrasena.getText().toString();
+                rcontrasena=eRcontrasena.getText().toString();
 
-                Toast.makeText(this,"Registrado!",Toast.LENGTH_SHORT).show();
+                if (user==null){
+                    firebd = firebasedatos.child("usuario").child("usuario "+ nusuario);
+                    UsuarioBD usuario = new UsuarioBD(nombreu,apellido,pais,correo,nusuario,contrasena);
+                    firebd.setValue(usuario);
+                    id2++;
+                    editor.putString("id",id2.toString());
+                    editor.putInt("var",1);
+                    editor.commit();
 
-                Intent intent = new Intent(this, LogginActivity.class);
-                startActivity(intent);
+                    Toast.makeText(this,"Registrado!",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, LogginActivity.class);
+                    startActivity(intent);
+                }else {
+
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                }
+
                 break;
             case R.id.bCancelar:
-                Intent intent2 = new Intent(this, LogginActivity.class);
-                startActivity(intent2);
+                if (user==null) {
+                    Intent intent2 = new Intent(this, LogginActivity.class);
+                    startActivity(intent2);
+                }else {
+                    Toast.makeText(RegistroActivity.this,"sesión cerrada",Toast.LENGTH_SHORT).show();
+                    LoginManager.getInstance().logOut();
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent (getApplicationContext(), LogginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                            Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
                 break;
         }
     }

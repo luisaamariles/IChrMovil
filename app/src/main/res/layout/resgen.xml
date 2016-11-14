@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkgray">
+    android:background="@color/darkgray"
+    android:screenOrientation="landscape">
     <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -24,21 +25,17 @@
                 android:text="@string/seis"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/sietea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/siete"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -54,21 +51,17 @@
                 android:text="@string/siete"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
+
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/ochoa"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/ocho"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,21 +76,17 @@
                 android:text="@string/ocho"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/nuevea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/nueve"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,21 +101,17 @@
                 android:text="@string/nueve"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/dieza"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/diez"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,21 +126,17 @@
                 android:text="@string/diez"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/oncea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/once"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -170,21 +151,17 @@
                 android:text="@string/once"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/docea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/doce"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -199,21 +176,17 @@
                 android:text="@string/doce"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/trecea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/trece"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -228,21 +201,17 @@
                 android:text="@string/una"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/catorcea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/catorce"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -257,21 +226,16 @@
                 android:text="@string/dos"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/quincea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/quince"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -286,21 +250,16 @@
                 android:text="@string/tres"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/dieciseisa"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/dieciseis"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -315,21 +274,16 @@
                 android:text="@string/cuatro"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/diecisietea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/diecisiete"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -344,21 +298,16 @@
                 android:text="@string/cinco"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/dieciochoa"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/dieciocho"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -373,21 +322,16 @@
                 android:text="@string/seisp"
                 android:textSize="24sp"
                 android:background="@color/darkgray"/>
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="45dp"/>
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/diecinuevea"
                 android:textSize="20sp"
                 android:background="@drawable/reserva"/>
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="45dp"/>
-            <Button
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/diecinueve"
-                android:textSize="20sp"
-                android:background="@drawable/cancelar"/>
+
         </LinearLayout>
         </LinearLayout>
 </ScrollView>

@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.luisaamariles.ichr_movil.ReservaFragment">
+    tools:context="com.luisaamariles.ichr_movil.ReservaFragment"
+    android:screenOrientation="landscape">
 
     <ListView
         android:layout_width="match_parent"
