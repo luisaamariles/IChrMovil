@@ -60,25 +60,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         bCancelar.setOnClickListener(this);
         id=prefs.getString("id","");
         id2= Integer.parseInt(id);
-        firebasedatos.addValueEventListener(new ValueEventListener() {
-            @Override
-    public void onDataChange(DataSnapshot dataSnapshot) {
-        if(dataSnapshot.child("Usuarios").exists()){
-            Intent intent = new Intent (getApplicationContext(), MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
-                    Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-        }else{
-            Intent intent = new Intent (getApplicationContext(), RegistroActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
-                    Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-        }
-    }
-    @Override
-    public void onCancelled(FirebaseError firebaseError) {
-    }
-});
+
     }
 
     public void onClick(View v) {

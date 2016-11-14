@@ -52,7 +52,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
     SharedPreferences.Editor editor;
     EditText Name, Pass;
     Button bSesion;
-    String Nombre, Contrasena, Mail;
+    String Nombre,act;
     Integer idh, idr, ids, idg;
 
     private LoginButton loginButton;
@@ -70,8 +70,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
 
     private GoogleApiClient mGoogleApiClient;
 
-    private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
-    private Firebase firebasedatos;
+
 //modificar la sesion inscribirse, cuando se logea con facebook o google saltar al formulario para agregar a la base de datos, poner una
     //sesion mi perfil con las datos de la base de datos
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +80,8 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.login);
         getSupportActionBar().hide();
 
-        firebasedatos = new Firebase(FIREBASE_URL);
-       /* prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        editor=prefs.edit();*/
+
+
         callbackManager = CallbackManager.Factory.create();
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
@@ -175,15 +173,8 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             editor.putString("idg", idg.toString());
             editor.commit();
         }
-        /*if(prefs.getInt("var",-1)==1){
-            Intent intent = new Intent(this, NavActivity.class);
-            intent.putExtra("Name",prefs.getString("nombre",""));
-            intent.putExtra("Pass",prefs.getString("contraseña",""));
-            intent.putExtra("Email",prefs.getString("mail",""));
 
-            startActivity(intent);
-            finish();
-        }*/
+
     }
     private void signIn() {
         opLog = 1;
@@ -192,35 +183,8 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void onClick(View v){
-
-        /*String vacio1= Name.getText().toString();
-        String a,b;
-        String vacio2= Pass.getText().toString();
-
-        editor.putString("nombre",Nombre);
-        editor.putString("contraseña",Contrasena);
-        editor.putString("mail",Mail);
-        editor.commit();
-
-        if (vacio1.equals("") || vacio2.equals("")) {
-            Toast.makeText(this,"Campos Vacios",Toast.LENGTH_SHORT).show();
-        }else{a=prefs.getString("nombre","");
-            b=prefs.getString("contraseña","");
-            if(vacio1.equals(a)&& vacio2.equals(b)) {*/
                 Intent intent = new Intent(this, MainActivity.class);
-                /*intent.putExtra("Name",prefs.getString("nombre",""));
-                intent.putExtra("Pass",prefs.getString("contraseña",""));
-                intent.putExtra("Email",prefs.getString("mail",""));
-                editor.putInt("var",1);
-                editor.commit();*/
                 startActivity(intent);
-                finish();
-
-           /* }else{
-                Toast.makeText(this,"Registrese!",Toast.LENGTH_SHORT).show();
-            }
-
-        }*/
     }
     public void handleOnClick(View view)
     {
@@ -229,8 +193,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.registro:
                 Intent intent2 = new Intent(this, RegistroActivity.class);
                 startActivityForResult(intent2, 1234);
-               // Name.setText("");
-               // Pass.setText("");
+
                 break;
             case R.id.Rpass:
                 Intent intent3 = new Intent(this, CambiarConActivity.class);
@@ -238,15 +201,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
-   /* @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1234 && resultCode == RESULT_OK) {
 
-        }
-        if (requestCode==1234 && resultCode == RESULT_CANCELED){
-            Log.d("mensaje","no se cargaron datos");
-        }
-    }*/
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -279,9 +234,6 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException());
                             Toast.makeText(LogginActivity.this, "Authentication failed.",
@@ -316,26 +268,11 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void goRegActivity() {
-        Firebase firebd;
-        firebasedatos.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child("Usuarios").exists()){
-                    Intent intent = new Intent (getApplicationContext(), MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
-                            Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }else{
-                    Intent intent = new Intent (getApplicationContext(), RegistroActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
-                            Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
+
+            Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                    Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
 
     }
 }
