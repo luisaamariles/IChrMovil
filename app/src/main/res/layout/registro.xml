@@ -138,7 +138,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="18"
             android:singleLine="true"
             android:textStyle="italic"
             android:id="@+id/eCorreo"

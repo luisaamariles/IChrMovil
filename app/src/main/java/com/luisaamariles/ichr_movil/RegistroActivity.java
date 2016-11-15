@@ -19,17 +19,19 @@ import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 /**
  * Created by Luisa Maria Amariles on 20/10/2016.
  */
 public class RegistroActivity extends AppCompatActivity implements View.OnClickListener {
-    String nombreu, apellido, direccion, pais, ciudad, correo, nusuario, contrasena, rcontrasena, id;
+    String nombreu, apellido , pais,correo, nusuario, contrasena, rcontrasena, id, existe;
     Button bAceptar, bCancelar;
     EditText eNombreu, eApellido, eDireccion, ePais, eCiudad, eCorreo,eUsuario, eContrasena, eRcontrasena;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     Integer id2;
-
+    ArrayList<UsuarioBD> info;
 
     private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
     private Firebase firebasedatos;
@@ -60,13 +62,50 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         bCancelar.setOnClickListener(this);
         id=prefs.getString("id","");
         id2= Integer.parseInt(id);
+        existe = "null";
+        info = new ArrayList<UsuarioBD>();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user!=null) {
+            nombreu = user.getDisplayName();
+            Toast.makeText(RegistroActivity.this,nombreu,Toast.LENGTH_SHORT).show();
+            correo = user.getEmail();
+        }
+
+        firebasedatos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("usuario").child("usuario "+nombreu).exists()){
+                    info.add(dataSnapshot.child("usuario").child("usuario "+nombreu).getValue(UsuarioBD.class));
+                    eNombreu.setText(info.get(0).getNombre());
+                    eNombreu.setFocusable(false);
+                    eApellido.setText(info.get(0).getApellido());
+                    eApellido.setFocusable(false);
+                    ePais.setText(info.get(0).getPais());
+                    ePais.setFocusable(false);
+                    eUsuario.setText(nombreu);
+                    eUsuario.setFocusable(false);
+                    eCorreo.setText(correo);
+                    eCorreo.setFocusable(false);
+                    eContrasena.setText("privada");
+                    eContrasena.setFocusable(false);
+                    eRcontrasena.setText("privada");
+                    eRcontrasena.setFocusable(false);
+                    existe = "ok";
+
+                }else{
+                    Toast.makeText(RegistroActivity.this,"Registrese!",Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
 
     }
 
     public void onClick(View v) {
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         switch (v.getId()) {
 
             case R.id.bAceptar:
@@ -79,7 +118,9 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 contrasena=eContrasena.getText().toString();
                 rcontrasena=eRcontrasena.getText().toString();
 
-                if (user==null){
+                if (existe.equals("ok")){
+
+                }else {
                     firebd = firebasedatos.child("usuario").child("usuario "+ nusuario);
                     UsuarioBD usuario = new UsuarioBD(nombreu,apellido,pais,correo,nusuario,contrasena);
                     firebd.setValue(usuario);
@@ -89,13 +130,10 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     editor.commit();
 
                     Toast.makeText(this,"Registrado!",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, LogginActivity.class);
-                    startActivity(intent);
-                }else {
 
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
                 }
+                Intent intent3 = new Intent(this, MainActivity.class);
+                startActivity(intent3);
 
                 break;
             case R.id.bCancelar:
