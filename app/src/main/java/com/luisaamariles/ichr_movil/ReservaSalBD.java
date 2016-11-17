@@ -8,13 +8,13 @@ public class ReservaSalBD {
 
     public ReservaSalBD() {
     }
-    public ReservaSalBD(String usuario, String salon, String fecha, String hora, String precio, String id) {
+    public ReservaSalBD(String usuario, String salon, String fecha, String hora, String precio) {
         this.usuario = usuario;
         this.salon = salon;
         this.fecha= fecha;
         this.hora= hora;
         this.precio= precio;
-        this.id = id;
+
     }
 
     public String getUsuario() {
@@ -31,7 +31,4 @@ public class ReservaSalBD {
 
     public  String getPrecio() { return precio;}
 
-    public String getId() {
-        return id;
-    }
 }

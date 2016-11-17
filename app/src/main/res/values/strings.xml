@@ -35,9 +35,9 @@
     <string name="cancelarr">Cancelar reserva:</string>
 
     <string name="reserva">Reservar</string>
-    <string name="fogon" formatted="false">Es el restaurante insignia del hotel. Su especialidad son las más ricas preparaciones a la piedra y las pizzas a la leña.</string>
-    <string name="brassie" formatted="false">Gran buffet de desayuno, con deliciosos panes, las más exóticas frutas, quesos, jugos, vegetales, sopas, entre otros productos. </string>
-    <string name="cava" formatted="false">Cocina de autor, con especialidad en platos para compartir. Es un lugar para tomar vinos de gran variedad.</string>
+    <string name="fogon" formatted="false">Es el restaurante insignia del hotel. Su especialidad son las más ricas preparaciones a la piedra y las pizzas a la leña. Abierto desde las 11 am hasta las 12 pm.</string>
+    <string name="brassie" formatted="false">Gran buffet de desayuno, con deliciosos panes, las más exóticas frutas, quesos, jugos, vegetales, sopas, entre otros productos. Abierto desde las 7 am hasta las 11 am. </string>
+    <string name="cava" formatted="false">Cocina de autor, con especialidad en platos para compartir. Es un lugar para tomar vinos de gran variedad. Abierto desde las 11 am hasta las 12 pm.</string>
     <string name="spa" formatted="false">SPA,TURCO,SAUNA Y JACUZZI</string>
     <string name="spades" formatted="false">Disfrute una sesión relajante en el spa del hotel intercontinental Medellín. Después, continúe con una experiencia sensorial pasando por el turco, sauna y jacuzzi.</string>
     <string name="piscina" formatted="false">LA GRAN PISCINA</string>
@@ -47,7 +47,7 @@
     <string name="tenis" formatted="false">Tenis</string>
     <string name="tenisdes" formatted="false">El hotel cuenta con dos canchas de tenis, con profesores y cadis.</string>
     <string name="gym" formatted="false">GIMNASIO</string>
-    <string name="gymdes" formatted="false">Le ofrecemos desde clases con instructores profesionales hasta maquinas individuales para realizar sus propias rutinas de ejercicio.</string>
+    <string name="gymdes" formatted="false">Le ofrecemos desde clases con instructores profesionales hasta maquinas individuales para realizar sus propias rutinas de ejercicio. Abierto desde las 6 am hasta las 8 pm</string>
     <string name="reg" formatted="false">Para iniciar el registro ingrese los datos</string>
     <string name="consul" formatted="false">Consulte el estado de sus reservas</string>
     <string name="cambiar" formatted="false">Ingrese una nueva contraseña</string>
@@ -70,7 +70,7 @@
     <string name="dessu" formatted="false">Suite de 49mts² con una sala independiente,  cama king, aire acondicionado, ventanas antiruido, escritorio y dos televisores pantalla plana. Además cuenta con clóset, minibar, cajilla de seguridad y baño con amenities, bata de baño, pantuflas y secador de pelo​​.​</string>
     <string name="dessupeje" formatted="false">Suite de 55mts² ubicada en el piso ejecutivo, con acceso a la zona VIP que cuenta con servicio en el front desk, sala de reuniones, sala de juntas y una  zona de alimentos. La Suite tiene una sala independiente,  cama king y las demas comodidades de una habitación.</string>
     <string name="dessuan" formatted="false">Suite de 118mts² de tres espacios ubicada en el piso ejecutivo, con acceso a la zona VIP que cuenta con servicio en el front desk, sala de reuniones, sala de juntas y una  zona de alimentos. La Suite tiene sala comedor, dos baños, habitación con cama king,sala y las demas comodidades de una habitación</string>
-    <string name="dessupre" formatted="false">Suite presidencial de 559mts² de cinco espacios ubicada en el piso ejecutivo, con acceso a la zona VIP que cuenta con servicio en el front desk, sala de reuniones, sala de juntas y una  zona de alimentos. La Suite cuenta con una sala de juntas, sala independiente, cocineta, zona común compuesta por terraza con baños. La habitación principal tiene una cama Extraking y demas comodidades. </string>
+    <string name="dessupre" formatted="false">Suite presidencial de 559mts² de cinco espacios ubicada en el piso ejecutivo, con acceso a la zona VIP con servicio en el front desk, sala de reuniones, sala de juntas, una  zona de alimentos, una sala independiente, cocineta, zona común compuesta por terraza con baños. La habitación principal tiene una cama Extraking y demas comodidades. </string>
     <string name="habapar" formatted="false">Habitación ApartaSuite</string>
     <string name="habsuan" formatted="false">Habitación Suite Antioquia</string>
     <string name="habsupre" formatted="false">Habitación Suite Presidencial</string>

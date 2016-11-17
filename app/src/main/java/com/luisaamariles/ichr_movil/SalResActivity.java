@@ -18,7 +18,7 @@ import com.firebase.client.Firebase;
  * Created by Luisa Maria Amariles on 25/10/2016.
  */
 public class SalResActivity extends AppCompatActivity implements View.OnClickListener{
-    String Nombre,ids,usuario, salon, fecha, hora, precio, id;
+    String Nombre,ids,usuario, salon, fecha, hora, precio;
     TextView Nomb;
     Button Reserva;
     SharedPreferences prefs;
@@ -37,8 +37,8 @@ public class SalResActivity extends AppCompatActivity implements View.OnClickLis
         Firebase.setAndroidContext(this);
         firebasedatos = new Firebase(FIREBASE_URL);
 
-        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        editor = prefs.edit();
+       // prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+       // editor = prefs.edit();
 
         Nomb = (TextView) findViewById(R.id.nomsal);
         Reserva = (Button) findViewById(R.id.Reservare);
@@ -47,8 +47,8 @@ public class SalResActivity extends AppCompatActivity implements View.OnClickLis
         Nombre = extras.getString("name");
         Nomb.setText(Nombre);
 
-        ids = prefs.getString("ids", "");
-        ids2 = Integer.parseInt(ids);
+        //ids = prefs.getString("ids", "");
+        //ids2 = Integer.parseInt(ids);
 
     }
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -69,12 +69,12 @@ public class SalResActivity extends AppCompatActivity implements View.OnClickLis
         fecha="12/11/16";
         hora="12:00am 1:pm";
         precio="$200.000";
-        ids2++;
+        /*ids2++;
         editor.putString("ids",ids2.toString());
         editor.putInt("var4",1);
-        editor.commit();
-        firebd = firebasedatos.child("Reservas").child("reservasal"+ids2+" "+usuario);
-        ReservaSalBD reservasal = new ReservaSalBD(usuario,salon,fecha,hora,precio,String.valueOf(ids2));
+        editor.commit();*/
+        firebd = firebasedatos.child("Reservas").child("reservasal"+" "+usuario);
+        ReservaSalBD reservasal = new ReservaSalBD(usuario,salon,fecha,hora,precio);
         firebd.setValue(reservasal);
         Toast.makeText(this,"Reservado!", Toast.LENGTH_SHORT).show();
     }

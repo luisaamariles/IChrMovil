@@ -4,16 +4,16 @@ package com.luisaamariles.ichr_movil;
  * Created by Luisa Maria Amariles on 01/11/2016.
  */
 public class ReservaGenBD {
-    private String usuario, tipo, hora, precio, id;
+    private String usuario, tipo, hora, precio;
 
     public ReservaGenBD() {
     }
-    public ReservaGenBD(String usuario, String tipo, String hora, String precio, String id) {
+    public ReservaGenBD(String usuario, String tipo, String hora, String precio) {
         this.usuario = usuario;
         this.tipo= tipo;
         this.hora= hora;
         this.precio= precio;
-        this.id = id;
+
     }
 
     public String getUsuario() {
@@ -27,7 +27,5 @@ public class ReservaGenBD {
 
     public  String getPrecio() { return precio;}
 
-    public String getId() {
-        return id;
-    }
+
 }

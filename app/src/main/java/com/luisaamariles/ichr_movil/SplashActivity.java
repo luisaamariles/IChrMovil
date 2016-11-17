@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
     getSupportActionBar().hide();
 
 
-        prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+       /* prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         editor=prefs.edit();
         if(prefs.getInt("var",-1)==1){
 
@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
             id=0;
             editor.putString("id", id.toString());
             editor.commit();
-        }
+        }*/
     Thread timerThread = new Thread(){
         public void run(){
             try{

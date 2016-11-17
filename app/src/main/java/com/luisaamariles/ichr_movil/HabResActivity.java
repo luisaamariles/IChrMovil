@@ -39,8 +39,8 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         Firebase.setAndroidContext(this);
         firebasedatos = new Firebase(FIREBASE_URL);
 
-        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        editor = prefs.edit();
+       // prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+       // editor = prefs.edit();
 
         Nomb = (TextView) findViewById(R.id.nomhab);
         Bundle extras = getIntent().getExtras();
@@ -49,8 +49,8 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         Reserva = (Button) findViewById(R.id.Reservar);
         Reserva.setOnClickListener(this);
 
-        idh = prefs.getString("idh", "");
-        idh2 = Integer.parseInt(idh);
+       // idh = prefs.getString("idh", "");
+        //idh2 = Integer.parseInt(idh);
 
     }
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -70,12 +70,12 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         fechain="12/11/16";
         fechasal="12/12/16";
         precio="$200.000";
-        idh2++;
+        /*idh2++;
         editor.putString("idh",idh2.toString());
         editor.putInt("var2",1);
-        editor.commit();
-        firebd = firebasedatos.child("Reservas").child("reservahab"+idh2+" "+usuario);
-        ReservaHabBD reservahab = new ReservaHabBD(usuario,numhab,fechain,fechasal,precio,String.valueOf(idh2));
+        editor.commit();*/
+        firebd = firebasedatos.child("Reservas").child("reservahab"+" "+usuario);
+        ReservaHabBD reservahab = new ReservaHabBD(usuario,numhab,fechain,fechasal,precio);
         firebd.setValue(reservahab);
 
         Toast.makeText(this,"Reservado!", Toast.LENGTH_SHORT).show();

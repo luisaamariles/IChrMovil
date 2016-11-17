@@ -134,6 +134,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 }
                 Intent intent3 = new Intent(this, MainActivity.class);
                 startActivity(intent3);
+                finish();
 
                 break;
             case R.id.bCancelar:
@@ -148,6 +149,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
                             Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+                    finish();
                 }
                 break;
         }

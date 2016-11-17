@@ -47,8 +47,8 @@ public class RegistroFragment extends Fragment implements View.OnClickListener{
         Firebase.setAndroidContext(getActivity());
         firebasedatos = new Firebase(FIREBASE_URL);
 
-        prefs =getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        editor=prefs.edit();
+        //prefs =getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        //editor=prefs.edit();
 
         eNombrer = (EditText) v.findViewById(R.id.eNombre1);
         eApellidor = (EditText) v.findViewById(R.id.eApellido1);
@@ -66,8 +66,8 @@ public class RegistroFragment extends Fragment implements View.OnClickListener{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new SpinnerListener());
-        id=prefs.getString("idr","");
-        idr2= Integer.parseInt(id);
+        //=prefs.getString("idr","");
+        //idr2= Integer.parseInt(id);
 
         return v;
     }
@@ -99,12 +99,12 @@ public class RegistroFragment extends Fragment implements View.OnClickListener{
                 profesion=eProfesion.getText().toString();
                 motivo=selected;
                 firebd = firebasedatos.child("Registro").child("registro "+ cedula);
-                RegistroBD registro = new RegistroBD(nombre,apellido,cedula,telefono,direccion,correo,profesion,motivo,String.valueOf(idr2));
+                RegistroBD registro = new RegistroBD(nombre,apellido,cedula,telefono,direccion,correo,profesion,motivo);
                 firebd.setValue(registro);
-                idr2++;
+               /* idr2++;
                 editor.putString("idr",idr2.toString());
                 editor.putInt("var3",1);
-                editor.commit();
+                editor.commit();*/
                 Toast.makeText(getActivity(),"Registro iniciado",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.Rcancelar:

@@ -51,10 +51,12 @@ public class CambiarConActivity extends AppCompatActivity implements View.OnClic
                 Toast.makeText(this,"Cambio realizado!",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, LogginActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.bCancelar1:
                 Intent intent2 = new Intent(this, LogginActivity.class);
                 startActivity(intent2);
+                finish();
                 break;
         }
     }

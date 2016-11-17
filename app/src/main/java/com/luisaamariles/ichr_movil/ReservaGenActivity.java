@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class ReservaGenActivity extends AppCompatActivity implements View.OnClickListener{
     Button seis,siete,ocho,nueve,diez,once,doce,una,dos,tres,cuatro,cinco,seis1,seisc,sietec,ochoc,nuevec,diezc,oncec,docec,unac, dosc, tresc,cuatroc, cincoc,seis1c;
 
-    String idg,usuario, tipo, hora, precio, id,Nombre;
+    String idg,usuario, tipo, hora, precio,Nombre;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     Integer idg2;
@@ -42,8 +42,8 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         Firebase.setAndroidContext(this);
 
 
-        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        editor = prefs.edit();
+        //prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        //editor = prefs.edit();
 
         Bundle extras = getIntent().getExtras();
         Nombre = extras.getString("cancha");
@@ -94,27 +94,13 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         seis1.setOnClickListener(this);
 
 
-        idg = prefs.getString("idg", "");
-        idg2 = Integer.parseInt(idg);
+       // idg = prefs.getString("idg", "");
+       // idg2 = Integer.parseInt(idg);
 
         info = new ArrayList<CanchaBD>();
 
         Firebase firebd;
-        final String code = "7";
-        firebasedatos.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(code).exists()){
-                    info.add(dataSnapshot.child("7").getValue(CanchaBD.class));
-                    Log.d("data",dataSnapshot.child(code).getValue().toString());
-                    Toast.makeText(ReservaGenActivity.this,info.get(0).getEstado(),Toast.LENGTH_SHORT).show();
 
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -135,144 +121,159 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
 
             case R.id.sietea:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                ReservaGenBD reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                final String code = "7";
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("7").getValue(CanchaBD.class));
+                            Log.d("data",dataSnapshot.child(code).getValue().toString());
+                            Toast.makeText(ReservaGenActivity.this,info.get(0).getEstado(),Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                ReservaGenBD reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.ochoa:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.nuevea:
-                idg2++;
+                /*idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.dieza:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.oncea:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.docea:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.trecea:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.catorcea:
-                idg2++;
+                /*idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.quincea:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.dieciseisa:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.diecisietea:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.dieciochoa:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.diecinuevea:
-                idg2++;
+               /* idg2++;
                 editor.putString("idg",idg2.toString());
                 editor.putInt("var5",1);
-                editor.commit();
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+idg2+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio,String.valueOf(idg2));
+                editor.commit();*/
+                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
+                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;

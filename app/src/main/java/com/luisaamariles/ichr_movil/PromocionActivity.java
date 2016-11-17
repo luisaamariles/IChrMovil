@@ -25,11 +25,11 @@ public class PromocionActivity extends MainActivity {
         getSupportActionBar().show();
 
         datos= new List[]{
-                new List("promo1", "desc1"),
-                new List("promo1", "desc1"),
-                new List("promo1", "desc1"),
-                new List("promo1", "desc1"),
-                new List("promo1", "desc1"),
+                new List("Suite presidencial", "Ahorre 10% haciendo la reserva de la suite durante este mes"),
+                new List("Descuento", "Incluya una comida dentro de su paquete realizando la reserva 1 mes antes"),
+                new List("1000 puntos", "Obtenga 1000 puntos adicionales por realizar el registro desde la aplicación"),
+                new List("Dia de Spa", "Por la reserva del piso ejecutivo obtenga un dia de Spa gratis "),
+                new List("La cava", "10% de descuento todos los jueves desde las 6 pm por este mes"),
         };
 
         Adapter adaptador = new Adapter(this);

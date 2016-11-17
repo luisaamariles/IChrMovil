@@ -64,11 +64,11 @@ public class ReservaFragment extends Fragment {
                         startActivity(intent2);
                         break;
                     case 2:
-                        Intent intent3 = new Intent(getActivity(), ReservaGenActivity.class);
+                        Intent intent3 = new Intent(getActivity(), CanchasActivity.class);
                         startActivity(intent3);
                         break;
                     case 3:
-                        Intent intent4 = new Intent(getActivity(), ReservaGenActivity.class);
+                        Intent intent4 = new Intent(getActivity(), SpaActivity.class);
                         startActivity(intent4);
                         break;
 

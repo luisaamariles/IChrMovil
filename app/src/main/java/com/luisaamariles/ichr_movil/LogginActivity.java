@@ -143,7 +143,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
         bSesion = (Button) findViewById(R.id.bIsesion);
         bSesion.setOnClickListener(this);
 
-        prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+       /* prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         editor=prefs.edit();
         if(prefs.getInt("var2",-1)==1){
 
@@ -172,7 +172,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             idg=0;
             editor.putString("idg", idg.toString());
             editor.commit();
-        }
+        }*/
 
 
     }
@@ -185,6 +185,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v){
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                finish();
     }
     public void handleOnClick(View view)
     {
@@ -193,11 +194,13 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.registro:
                 Intent intent2 = new Intent(this, RegistroActivity.class);
                 startActivityForResult(intent2, 1234);
+                finish();
 
                 break;
             case R.id.Rpass:
                 Intent intent3 = new Intent(this, CambiarConActivity.class);
                 startActivity(intent3);
+                finish();
                 break;
         }
     }
@@ -273,6 +276,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
                     Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+            finish();
 
     }
 }

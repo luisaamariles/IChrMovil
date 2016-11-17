@@ -4,11 +4,11 @@ package com.luisaamariles.ichr_movil;
  * Created by Luisa Maria Amariles on 30/10/2016.
  */
 public class RegistroBD {
-    private String nombre, apellido, cedula,telefono, direccion, correo,profesion, motivo, id;
+    private String nombre, apellido, cedula,telefono, direccion, correo,profesion, motivo;
 
     public RegistroBD() {
     }
-    public RegistroBD(String nombre, String apellido, String cedula, String telefono, String direccion, String correo, String profesion, String motivo, String id) {
+    public RegistroBD(String nombre, String apellido, String cedula, String telefono, String direccion, String correo, String profesion, String motivo) {
         this.nombre = nombre;
         this.apellido= apellido;
         this.cedula = cedula;
@@ -17,7 +17,7 @@ public class RegistroBD {
         this.correo= correo;
         this.profesion=profesion;
         this.motivo= motivo;
-        this.id = id;
+
     }
 
     public String getNombre() {return nombre;}
@@ -36,7 +36,4 @@ public class RegistroBD {
 
     public  String getMotivo() { return motivo;}
 
-    public String getId() {
-        return id;
-    }
 }
