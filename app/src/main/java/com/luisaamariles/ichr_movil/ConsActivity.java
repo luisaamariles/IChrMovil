@@ -15,18 +15,76 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
 
 /**
  * Created by Luisa Maria Amariles on 25/10/2016.
  */
 public class ConsActivity extends AppCompatActivity{
     private ListCons[] datos;
+    private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
+    private Firebase firebasedatos;
+
+    String Nombre, mini,tenis,spa,minihora,tenishora,spahora;
     ListView listView;
+    ArrayList<ReservaGenBD> info;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.cons);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        Bundle extras = getIntent().getExtras();
+        Nombre = extras.getString("usuario");
+        info = new ArrayList<ReservaGenBD>();
+        ArrayList<String> list = new ArrayList<String>();
+
+        Firebase.setAndroidContext(this);
+        firebasedatos = new Firebase(FIREBASE_URL);
+        firebasedatos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("Reservas").child("reservaMini Golf "+Nombre).exists()){
+                    info.add(dataSnapshot.child("reservaMini Golf "+Nombre).getValue(ReservaGenBD.class));
+                    Toast.makeText(ConsActivity.this,"mini",Toast.LENGTH_SHORT).show();
+                    mini=info.get(0).getTipo();
+                    minihora=info.get(0).getHora();
+
+                }
+                if(dataSnapshot.child("Reservas").child("reservaTenis "+Nombre).exists()){
+                    info.add(dataSnapshot.child("reservaTenis "+Nombre).getValue(ReservaGenBD.class));
+                    Toast.makeText(ConsActivity.this,"tenis",Toast.LENGTH_SHORT).show();
+                    tenis=info.get(0).getTipo();
+                    tenishora=info.get(0).getHora();
+                }
+                if(dataSnapshot.child("Reservas").child("reservaSpa "+Nombre).exists()){
+                    info.add(dataSnapshot.child("reservaSpa "+Nombre).getValue(ReservaGenBD.class));
+                    Toast.makeText(ConsActivity.this,"Spa",Toast.LENGTH_SHORT).show();
+                    spa=info.get(0).getTipo();
+                    spahora=info.get(0).getHora();
+                }
+
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
+        //info = new ArrayList<UsuarioBD>();
+
+
+
         datos= new ListCons[]{
                 new ListCons("promo1", "desc1"),
                 new ListCons("promo1", "desc1"),

@@ -15,6 +15,8 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -24,14 +26,16 @@ import java.util.ArrayList;
 public class ReservaGenActivity extends AppCompatActivity implements View.OnClickListener{
     Button seis,siete,ocho,nueve,diez,once,doce,una,dos,tres,cuatro,cinco,seis1,seisc,sietec,ochoc,nuevec,diezc,oncec,docec,unac, dosc, tresc,cuatroc, cincoc,seis1c;
 
-    String idg,usuario, tipo, hora, precio,Nombre;
+    String usuario, tipo, hora,codhora,Nombre,nombreus,estado;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
-    Integer idg2;
+    Integer ban=0;
+    Firebase firebd, firebd2;
 
     private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
-    private Firebase firebasedatos;
+    private Firebase firebasedatos,firebasedatos2;
     ArrayList<CanchaBD> info;
+    ArrayList<UsuarioBD> info2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,9 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         }else if(Nombre.equals("Spa")){
             firebasedatos = new Firebase(FIREBASE_URL).child("Spa");
         }
+
+        firebasedatos2 = new Firebase(FIREBASE_URL);
+
         seis = (Button) findViewById(R.id.sietea);
         seis.setOnClickListener(this);
 
@@ -98,8 +105,13 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
        // idg2 = Integer.parseInt(idg);
 
         info = new ArrayList<CanchaBD>();
+        info2 = new ArrayList<UsuarioBD>();
 
         Firebase firebd;
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user!=null) {
+            nombreus = user.getDisplayName();
+        }
 
     }
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -113,37 +125,45 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         }
     }
     public void onClick(View v) {
-        Firebase firebd;
-        usuario="daniela";
-        tipo="spa";
-        hora="12/12/16";
-        precio="$200.000";
+
+        usuario=nombreus;
+        tipo=Nombre;
+        final String code;
         switch (v.getId()) {
 
             case R.id.sietea:
-               /* idg2++;
-                editor.putString("idg",idg2.toString());
-                editor.putInt("var5",1);
-                editor.commit();*/
-                final String code = "7";
+                hora = "7";
+                code = "7";
+                codhora=code;
                 firebasedatos.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child(code).exists()){
                             info.add(dataSnapshot.child("7").getValue(CanchaBD.class));
                             Log.d("data",dataSnapshot.child(code).getValue().toString());
-                            Toast.makeText(ReservaGenActivity.this,info.get(0).getEstado(),Toast.LENGTH_SHORT).show();
-
+                            estado=info.get(0).getEstado();
+                            Toast.makeText(ReservaGenActivity.this,estado,Toast.LENGTH_SHORT).show();
+                            Actualizar();
                         }
+
                     }
                     @Override
                     public void onCancelled(FirebaseError firebaseError) {
                     }
                 });
-                firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                ReservaGenBD reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
-                firebd.setValue(reservagen);
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+
+               /* if (estado.equals("0")) {
+                    estado="1";
+                    firebd = firebasedatos2.child("Reservas").child("reserva" + tipo + " " + usuario);
+                    ReservaGenBD reservagen = new ReservaGenBD(usuario, tipo, hora);
+                    firebd.setValue(reservagen);
+                    Toast.makeText(ReservaGenActivity.this, "Reservado!", Toast.LENGTH_SHORT).show();
+                    firebd2 = firebasedatos.child(codhora);
+                    CanchaBD cambioestado = new CanchaBD(estado);
+                    firebd2.setValue(cambioestado);
+                } else {
+                    Toast.makeText(ReservaGenActivity.this, " Ya está reservado!", Toast.LENGTH_SHORT).show();
+                }*/
                 break;
 
             case R.id.ochoa:
@@ -152,7 +172,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                ReservaGenBD reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -163,7 +183,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -174,7 +194,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -185,7 +205,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -196,7 +216,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -207,7 +227,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -218,7 +238,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -229,7 +249,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -240,7 +260,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -251,7 +271,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -262,7 +282,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
@@ -273,11 +293,27 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 editor.putInt("var5",1);
                 editor.commit();*/
                 firebd = firebasedatos.child("Reservas").child("reserva"+tipo+" "+usuario);
-                reservagen = new ReservaGenBD(usuario,tipo,hora,precio);
+                reservagen = new ReservaGenBD(usuario,tipo,hora);
                 firebd.setValue(reservagen);
                 Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
                 break;
 
+        }
+
+    }
+
+    public void Actualizar(){
+        if (estado.equals("0")) {
+            estado="1";
+            firebd = firebasedatos2.child("Reservas").child("reserva" + tipo + " " + usuario);
+            ReservaGenBD reservagen = new ReservaGenBD(usuario, tipo, hora);
+            firebd.setValue(reservagen);
+            Toast.makeText(ReservaGenActivity.this, "Reservado!", Toast.LENGTH_SHORT).show();
+            firebd2 = firebasedatos.child(codhora);
+            CanchaBD cambioestado = new CanchaBD(estado);
+            firebd2.setValue(cambioestado);
+        } else {
+            Toast.makeText(ReservaGenActivity.this, " Ya está reservado!", Toast.LENGTH_SHORT).show();
         }
     }
 }
