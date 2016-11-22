@@ -60,8 +60,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         bAceptar.setOnClickListener(this);
         bCancelar = (Button) findViewById(R.id.bCancelar);
         bCancelar.setOnClickListener(this);
-        id=prefs.getString("id","");
-        id2= Integer.parseInt(id);
+
         existe = "null";
         info = new ArrayList<UsuarioBD>();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -124,10 +123,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     firebd = firebasedatos.child("usuario").child("usuario "+ nusuario);
                     UsuarioBD usuario = new UsuarioBD(nombreu,apellido,pais,correo,nusuario,contrasena);
                     firebd.setValue(usuario);
-                    id2++;
-                    editor.putString("id",id2.toString());
-                    editor.putInt("var",1);
-                    editor.commit();
 
                     Toast.makeText(this,"Registrado!",Toast.LENGTH_SHORT).show();
 

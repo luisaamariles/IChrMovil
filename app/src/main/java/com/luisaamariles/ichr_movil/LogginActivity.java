@@ -143,7 +143,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
         bSesion = (Button) findViewById(R.id.bIsesion);
         bSesion.setOnClickListener(this);
 
-       /* prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+       prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         editor=prefs.edit();
         if(prefs.getInt("var2",-1)==1){
 
@@ -152,7 +152,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             editor.putString("idh", idh.toString());
             editor.commit();
         }
-        if(prefs.getInt("var3",-1)==1){
+       /* if(prefs.getInt("var3",-1)==1){
 
         }else {
             idr=0;
@@ -165,8 +165,8 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             ids=0;
             editor.putString("ids", ids.toString());
             editor.commit();
-        }
-        if(prefs.getInt("var5",-1)==1){
+        }*/
+        /*if(prefs.getInt("var5",-1)==1){
 
         }else {
             idg=0;
