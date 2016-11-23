@@ -1,16 +1,21 @@
 package com.luisaamariles.ichr_movil;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.Toast;
+
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -28,10 +33,10 @@ import java.util.ArrayList;
 public class ReservaGenActivity extends AppCompatActivity implements View.OnClickListener{
     Button seis,siete,ocho,nueve,diez,once,doce,una,dos,tres,cuatro,cinco,seis1;
 
-    String usuario, tipo, hora,codhora,Nombre,nombreus,estado,idg;
+    String usuario, tipo, hora,codhora,Nombre,nombreus,estado,idg, idg1,idg2;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
-    Integer ban=0, idh;
+    Integer idh,idr,ids,ban=0;
     Firebase firebd, firebd2;
 
     private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
@@ -108,6 +113,12 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         idg = prefs.getString("idh", "");
         idh = Integer.parseInt(idg);
 
+        idg1 = prefs.getString("idr", "");
+        idr = Integer.parseInt(idg1);
+
+        idg2 = prefs.getString("ids", "");
+        ids = Integer.parseInt(idg2);
+
         info = new ArrayList<CanchaBD>();
         info2 = new ArrayList<UsuarioBD>();
 
@@ -116,9 +127,7 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         if (user!=null) {
             nombreus = user.getDisplayName();
         }
-        if(idh==1){
-            Alerta();
-        }
+
 
     }
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -136,6 +145,15 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         usuario=nombreus;
         tipo=Nombre;
         final String code;
+        if(Nombre.equals("Spa")&& ids==1){
+            Alerta();
+        }
+        if(Nombre.equals("Tenis")&& idr==1){
+            Alerta();
+        }
+        if(Nombre.equals("Mini Golf")&& idh==1){
+            Alerta();
+        }
         switch (v.getId()) {
 
             case R.id.sietea:
@@ -148,12 +166,18 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                         if(dataSnapshot.child(code).exists()){
                             info.add(dataSnapshot.child("7").getValue(CanchaBD.class));
                             estado=info.get(0).getEstado();
-                            if(idh==1){
-                                Alerta();
-                            }
-                            if(idh==0) {
+
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
                                 Actualizar();
                             }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+                            if(Nombre.equals("Spa")&& ids==0){
+                                Actualizar();
+                            }
+
                         }
                     }
                     @Override
@@ -173,10 +197,16 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                         if(dataSnapshot.child(code).exists()){
                             info.add(dataSnapshot.child("8").getValue(CanchaBD.class));
                             estado=info.get(0).getEstado();
-                            if(idh==1){
-                                Alerta();
+
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
                             }
-                            if(idh==0) {
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
                                 Actualizar();
                             }
                         }
@@ -188,58 +218,333 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.nuevea:
+                hora = "9";
+                code = "9";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("9").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.dieza:
+                hora = "10";
+                code = "10";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("10").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.oncea:
+                hora = "11";
+                code = "11";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("11").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.docea:
+                hora = "12";
+                code = "12";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("12").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.trecea:
+                hora = "13";
+                code = "13";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("13").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.catorcea:
+                hora = "14";
+                code = "14";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("14").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.quincea:
+                hora = "15";
+                code = "15";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("15").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.dieciseisa:
+                hora = "16";
+                code = "16";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("16").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.diecisietea:
+                hora = "17";
+                code = "17";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("17").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.dieciochoa:
+                hora = "18";
+                code = "18";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("18").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
             case R.id.diecinuevea:
+                hora = "19";
+                code = "19";
+                codhora=code;
+                firebasedatos.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(code).exists()){
+                            info.add(dataSnapshot.child("19").getValue(CanchaBD.class));
+                            estado=info.get(0).getEstado();
 
-                Toast.makeText(this,"Reservado!",Toast.LENGTH_SHORT).show();
+                            if(Nombre.equals("Mini Golf")&& idh==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Tenis")&& idr==0) {
+                                Actualizar();
+                            }
+
+                            if(Nombre.equals("Spa")&& ids==0) {
+                                Actualizar();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                    }
+                });
                 break;
 
         }
@@ -247,11 +552,24 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void Actualizar(){
-        idh=1;
-        editor.putString("idh",idh.toString());
-        editor.putInt("var",1);
-        editor.commit();
+
         if (estado.equals("0")) {
+            if(Nombre.equals("Mini Golf")) {
+                idh = 1;
+                editor.putString("idh", idh.toString());
+                editor.putInt("var2", 1);
+                editor.commit();
+            }else if(Nombre.equals("Tenis")){
+                idr = 1;
+                editor.putString("idr", idr.toString());
+                editor.putInt("var3", 1);
+                editor.commit();
+            }else if(Nombre.equals("Spa")){
+                ids = 1;
+                editor.putString("ids", ids.toString());
+                editor.putInt("var4", 1);
+                editor.commit();
+            }
             estado="1";
             firebd = firebasedatos2.child("Reservas").child("reserva" + tipo + " " + usuario);
             ReservaGenBD reservagen = new ReservaGenBD(usuario, tipo, hora);
@@ -266,8 +584,22 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
             ad.create();
             ad.show();
         } else {
-            Toast.makeText(ReservaGenActivity.this, " Ya está reservado!", Toast.LENGTH_SHORT).show();
+            info.clear();
+            AlertDialog.Builder ad = new AlertDialog.Builder(this);
+            ad.setTitle("Importante");
+            ad.setMessage("Esta hora ya se encuentra reservada!");
+            ad.setPositiveButton("Ok", null);
+            ad.create();
+            if(!(this).isFinishing())
+            {
+                //show dialog
+                ad.show();
+
+            }
+
         }
+
+
     }
     public void Alerta(){
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
@@ -276,5 +608,6 @@ public class ReservaGenActivity extends AppCompatActivity implements View.OnClic
         ad.setPositiveButton("Ok", null);
         ad.create();
         ad.show();
+
     }
 }

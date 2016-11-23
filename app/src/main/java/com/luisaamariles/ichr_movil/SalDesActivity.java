@@ -61,52 +61,52 @@ public class SalDesActivity extends AppCompatActivity implements View.OnClickLis
         ima = extras.getString("ima");
         switch (ima) {
             case "0":
-                Ima.setImageResource(R.drawable.apartasuites);
+                Ima.setImageResource(R.drawable.eventos1);
                 break;
             case "1":
-                Ima.setImageResource(R.drawable.suiteantioquia);
+                Ima.setImageResource(R.drawable.eventos4);
                 break;
             case "2":
-                Ima.setImageResource(R.drawable.suitepresidencial);
+                Ima.setImageResource(R.drawable.eventos6);
                 break;
             case "3":
-                Ima.setImageResource(R.drawable.suitepisoejecutivo);
+                Ima.setImageResource(R.drawable.eventos8);
                 break;
             case "4":
-                Ima.setImageResource(R.drawable.suites2);
+                Ima.setImageResource(R.drawable.eventos9);
                 break;
             case "5":
-                Ima.setImageResource(R.drawable.juniorsuitesking);
+                Ima.setImageResource(R.drawable.eventos10);
                 break;
             case "6":
-                Ima.setImageResource(R.drawable.juniortwin);
+                Ima.setImageResource(R.drawable.evento12);
                 break;
             case "7":
-                Ima.setImageResource(R.drawable.superiorking);
+                Ima.setImageResource(R.drawable.evento11);
                 break;
             case "8":
-                Ima.setImageResource(R.drawable.superiortwin);
+                Ima.setImageResource(R.drawable.eventos3);
                 break;
             case "9":
-                Ima.setImageResource(R.drawable.ejecutiva);
+                Ima.setImageResource(R.drawable.eventos5);
                 break;
             case "10":
-                Ima.setImageResource(R.drawable.discapacitados);
+                Ima.setImageResource(R.drawable.evento16);
                 break;
             case "11":
-                Ima.setImageResource(R.drawable.discapacitados);
+                Ima.setImageResource(R.drawable.evento15);
                 break;
             case "12":
-                Ima.setImageResource(R.drawable.discapacitados);
+                Ima.setImageResource(R.drawable.eventos7);
                 break;
             case "13":
-                Ima.setImageResource(R.drawable.discapacitados);
+                Ima.setImageResource(R.drawable.eventos3);
                 break;
             case "14":
-                Ima.setImageResource(R.drawable.discapacitados);
+                Ima.setImageResource(R.drawable.evento12);
                 break;
             case "15":
-                Ima.setImageResource(R.drawable.discapacitados);
+                Ima.setImageResource(R.drawable.eventos7);
                 break;
         }
 
