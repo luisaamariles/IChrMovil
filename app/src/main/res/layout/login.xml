@@ -13,11 +13,11 @@
     android:screenOrientation="landscape">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="50dp"
         android:orientation="horizontal" />
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="95dp"
         android:src="@drawable/logo"
         android:layout_gravity="center"/>
     <LinearLayout
@@ -30,106 +30,63 @@
         android:text="@string/Log"
         android:id="@+id/log"
         android:gravity="center"
-        android:textSize="13sp"
-        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
         android:textColor="@color/black" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="85dp"
         android:orientation="horizontal"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Name"
-        android:id="@+id/Name"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/black"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLength="18"
-        android:singleLine="true"
-        android:textStyle="italic"
-        android:id="@+id/eName"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:textSize="23sp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Pass"
-        android:id="@+id/Pass"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/black"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLength="18"
-        android:inputType="textPassword"
-        android:singleLine="true"
-        android:textStyle="italic"
-        android:gravity="center"
-        android:id="@+id/ePass"
-        android:textColor="@color/black"
-        android:textSize="23sp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:orientation="horizontal" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/bsesion"
-            android:id="@+id/bIsesion"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:orientation="horizontal" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/registro"
-        android:id="@+id/registro"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/blue"
-        android:clickable="true"
-        android:onClick="handleOnClick" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:orientation="horizontal" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logface"
+            android:id="@+id/logfa"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:orientation="horizontal"
+            />
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:orientation="horizontal"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/loggoo"
+            android:id="@+id/loggo"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:orientation="horizontal"
+            />
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
-            android:layout_width="140dp"
-            android:layout_height="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             />
     </LinearLayout>
 
@@ -138,16 +95,5 @@
         android:layout_height="5dp"
         android:orientation="horizontal" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Rpass"
-        android:text="@string/RePass"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/black"
-        android:clickable="true"
-        android:onClick="handleOnClick" />
 
 </LinearLayout>

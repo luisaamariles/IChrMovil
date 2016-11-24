@@ -47,13 +47,13 @@ import java.util.Arrays;
 /**
  * Created by Luisa Maria Amariles on 20/10/2016.
  */
-public class LogginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LogginActivity extends AppCompatActivity  {
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     EditText Name, Pass;
     Button bSesion;
     String Nombre,act;
-    Integer idh, idr, ids, idg;
+    Integer idh, idr, ids, idg, ida;
 
     private LoginButton loginButton;
     private CallbackManager callbackManager;
@@ -138,11 +138,6 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
 
         };
 
-        Name = (EditText) findViewById(R.id.eName);
-        Pass= (EditText) findViewById(R.id.ePass);
-        bSesion = (Button) findViewById(R.id.bIsesion);
-        bSesion.setOnClickListener(this);
-
        prefs =getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         editor=prefs.edit();
         if(prefs.getInt("var2",-1)==1){
@@ -166,13 +161,20 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
             editor.putString("ids", ids.toString());
             editor.commit();
         }
-        /*if(prefs.getInt("var5",-1)==1){
+        if(prefs.getInt("var5",-1)==1){
 
         }else {
             idg=0;
             editor.putString("idg", idg.toString());
             editor.commit();
-        }*/
+        }
+        if(prefs.getInt("var6",-1)==1){
+
+        }else {
+            ida=0;
+            editor.putString("ida", ida.toString());
+            editor.commit();
+        }
 
 
     }
@@ -182,28 +184,7 @@ public class LogginActivity extends AppCompatActivity implements View.OnClickLis
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    public void onClick(View v){
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                finish();
-    }
-    public void handleOnClick(View view)
-    {
-        switch(view.getId())
-        {
-            case R.id.registro:
-                Intent intent2 = new Intent(this, RegistroActivity.class);
-                startActivityForResult(intent2, 1234);
-                finish();
 
-                break;
-            case R.id.Rpass:
-                Intent intent3 = new Intent(this, CambiarConActivity.class);
-                startActivity(intent3);
-                finish();
-                break;
-        }
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +61,12 @@ public class ConsultaFragment extends Fragment implements View.OnClickListener{
             intent.putExtra("usuario", nombreus);
             startActivity(intent);
         }else{
-            Toast.makeText(getActivity(),"No es el usuario actual",Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
+            ad.setTitle("Importante");
+            ad.setMessage("Este no es el nombre de usuario actual");
+            ad.setPositiveButton("Ok", null);
+            ad.create();
+            ad.show();
             Usuario.setText(" ");
         }
 

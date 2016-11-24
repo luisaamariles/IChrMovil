@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -30,7 +32,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     EditText eNombreu, eApellido, eDireccion, ePais, eCiudad, eCorreo,eUsuario, eContrasena, eRcontrasena;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
-    Integer id2;
+    Integer ban=0;
     ArrayList<UsuarioBD> info;
 
     private String FIREBASE_URL="https://ichrmovil.firebaseio.com/";
@@ -54,8 +56,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         ePais = (EditText) findViewById(R.id.ePais);
         eCorreo = (EditText) findViewById(R.id.eCorreo);
         eUsuario= (EditText) findViewById(R.id.eUsuario);
-        eContrasena = (EditText) findViewById(R.id.eContrasena);
-        eRcontrasena= (EditText) findViewById(R.id.eRContrasena);
+
         bAceptar = (Button) findViewById(R.id.bAceptar);
         bAceptar.setOnClickListener(this);
         bCancelar = (Button) findViewById(R.id.bCancelar);
@@ -67,8 +68,9 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         if (user!=null) {
             nombreu = user.getDisplayName();
-            Toast.makeText(RegistroActivity.this,nombreu,Toast.LENGTH_SHORT).show();
+            eUsuario.setText(nombreu);
             correo = user.getEmail();
+            eCorreo.setText(correo);
         }
 
         firebasedatos.addValueEventListener(new ValueEventListener() {
@@ -86,14 +88,12 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     eUsuario.setFocusable(false);
                     eCorreo.setText(correo);
                     eCorreo.setFocusable(false);
-                    eContrasena.setText("privada");
-                    eContrasena.setFocusable(false);
-                    eRcontrasena.setText("privada");
-                    eRcontrasena.setFocusable(false);
                     existe = "ok";
-
                 }else{
-                    Toast.makeText(RegistroActivity.this,"Registrese!",Toast.LENGTH_SHORT).show();
+                    if(ban==0) {
+                        Alerta();
+                        ban=1;
+                    }
                 }
             }
             @Override
@@ -103,6 +103,16 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    public void Alerta(){
+        AlertDialog.Builder ad = new AlertDialog.Builder(RegistroActivity.this);
+        ad.setTitle("Importante");
+        ad.setMessage("Para continuar debe registrar sus datos!");
+        ad.setPositiveButton("Ok", null);
+        ad.create();
+        //show dialog
+        ad.show();
+
+    }
     public void onClick(View v) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         switch (v.getId()) {
@@ -114,22 +124,38 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 pais=ePais.getText().toString();
                 correo=eCorreo.getText().toString();
                 nusuario=eUsuario.getText().toString();
-                contrasena=eContrasena.getText().toString();
-                rcontrasena=eRcontrasena.getText().toString();
+
 
                 if (existe.equals("ok")){
-
+                    Intent intent3 = new Intent(this, MainActivity.class);
+                    startActivity(intent3);
+                    finish();
                 }else {
                     firebd = firebasedatos.child("usuario").child("usuario "+ nusuario);
-                    UsuarioBD usuario = new UsuarioBD(nombreu,apellido,pais,correo,nusuario,contrasena);
+                    UsuarioBD usuario = new UsuarioBD(nombreu,apellido,pais,correo,nusuario);
                     firebd.setValue(usuario);
+                    AlertDialog.Builder ad = new AlertDialog.Builder(RegistroActivity.this);
+                    ad.setTitle("Bienvenido");
+                    ad.setMessage("Tu registro ha sido exitoso, ahora puedes conocer toda la información de tu interes");
+                    ad.create();
+                    ad.show();
+                    new CountDownTimer(2000, 1000) {
+                        public void onFinish() {
+                            // When timer is finished
+                            // Execute your code here
+                            Intent intent3 = new Intent(RegistroActivity.this, MainActivity.class);
+                            startActivity(intent3);
+                            finish();
+                        }
 
-                    Toast.makeText(this,"Registrado!",Toast.LENGTH_SHORT).show();
+                        public void onTick(long millisUntilFinished) {
+                            // millisUntilFinished    The amount of time until finished.
+                        }
+                    }.start();
+
 
                 }
-                Intent intent3 = new Intent(this, MainActivity.class);
-                startActivity(intent3);
-                finish();
+
 
                 break;
             case R.id.bCancelar:
@@ -137,14 +163,29 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     Intent intent2 = new Intent(this, LogginActivity.class);
                     startActivity(intent2);
                 }else {
-                    Toast.makeText(RegistroActivity.this,"sesión cerrada",Toast.LENGTH_SHORT).show();
-                    LoginManager.getInstance().logOut();
-                    FirebaseAuth.getInstance().signOut();
-                    Intent intent = new Intent (getApplicationContext(), LogginActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
-                            Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
+                    AlertDialog.Builder ad = new AlertDialog.Builder(RegistroActivity.this);
+                    ad.setMessage("cerrando sesión");
+                    ad.create();
+                    ad.show();
+
+                    new CountDownTimer(2000, 1000) {
+                        public void onFinish() {
+                            // When timer is finished
+                            // Execute your code here
+                            LoginManager.getInstance().logOut();
+                            FirebaseAuth.getInstance().signOut();
+                            Intent intent = new Intent (getApplicationContext(), LogginActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                                    Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        }
+
+                        public void onTick(long millisUntilFinished) {
+                            // millisUntilFinished    The amount of time until finished.
+                        }
+                    }.start();
+
                 }
                 break;
         }

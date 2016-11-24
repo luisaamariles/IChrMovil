@@ -2,6 +2,8 @@
     <string name="facebook_app_id">118839481925847</string>
     <string name="app_name">ICh&amp;r_Movil</string>
     <string name="Log">HOTELS &amp; RESORTS</string>
+    <string name="logface">Si tiene cuenta de Facebook:</string>
+    <string name="loggoo">Si tiene cuenta de Google:</string>
     <string name="Name">USUARIO:</string>
     <string name="Pass">CONTRASEÑA:</string>
     <string name="bsesion">Iniciar Sesión</string>
@@ -97,15 +99,15 @@
         <item>8 pm</item>
     </string-array>
     <string-array name="fechad">
-        <item>01</item>
-        <item>02</item>
-        <item>03</item>
-        <item>04</item>
-        <item>05</item>
-        <item>06</item>
-        <item>07</item>
-        <item>08</item>
-        <item>09</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
         <item>10</item>
         <item>11</item>
         <item>12</item>

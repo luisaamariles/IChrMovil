@@ -53,7 +53,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="18"
             android:singleLine="true"
             android:textStyle="italic"
             android:id="@+id/eNombre1"
@@ -78,7 +77,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="18"
             android:singleLine="true"
             android:textStyle="italic"
             android:id="@+id/eApellido1"
@@ -103,7 +101,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="18"
             android:singleLine="true"
             android:textStyle="italic"
             android:id="@+id/eCedula"
@@ -128,7 +125,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="18"
             android:singleLine="true"
             android:textStyle="italic"
             android:id="@+id/eTelefono"
@@ -153,7 +149,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="18"
             android:singleLine="true"
             android:textStyle="italic"
             android:id="@+id/eDireccion2"
@@ -203,7 +198,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="18"
             android:singleLine="true"
             android:textStyle="italic"
             android:id="@+id/eProfesion"

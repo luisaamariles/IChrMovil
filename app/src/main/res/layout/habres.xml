@@ -93,9 +93,19 @@
             android:layout_height="20dp"
             />
         <Spinner
+            android:verticalScrollbarPosition="left"
+            android:scrollbarThumbVertical="@drawable/scrollbar_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fechin"
+            android:id="@+id/fechind"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <Spinner
+            android:verticalScrollbarPosition="left"
+            android:scrollbarThumbVertical="@drawable/scrollbar_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fechinm"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
@@ -128,9 +138,19 @@
             android:layout_height="20dp"
             />
         <Spinner
+            android:verticalScrollbarPosition="left"
+            android:scrollbarThumbVertical="@drawable/scrollbar_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fechsa"
+            android:id="@+id/fechsad"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <Spinner
+            android:verticalScrollbarPosition="left"
+            android:scrollbarThumbVertical="@drawable/scrollbar_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fechsam"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 

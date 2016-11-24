@@ -54,9 +54,7 @@ public class MiperfilActivity extends MainActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child("usuario").child("usuario "+nombreus).exists()){
                     info.add(dataSnapshot.child("usuario").child("usuario "+nombreus).getValue(UsuarioBD.class));
-                    eNombre.setText(info.get(0).getNombre()+" "+info.get(0).getApellido());
-                    eUsuario.setText(info.get(0).getUsuario());
-                    eEmail.setText(info.get(0).getCorreo());
+                    Actualizar();
 
                 }
             }
@@ -65,6 +63,11 @@ public class MiperfilActivity extends MainActivity {
             }
         });
 
+    }
+    public void Actualizar(){
+        eNombre.setText(info.get(0).getNombre()+" "+info.get(0).getApellido());
+        eUsuario.setText(info.get(0).getUsuario());
+        eEmail.setText(info.get(0).getCorreo());
     }
 
 }

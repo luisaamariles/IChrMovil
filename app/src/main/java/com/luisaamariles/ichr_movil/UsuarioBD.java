@@ -8,13 +8,13 @@ public class UsuarioBD {
 
     public UsuarioBD() {
     }
-    public UsuarioBD(String nombre, String apellido,  String pais,  String correo, String usuario, String contrasena) {
+    public UsuarioBD(String nombre, String apellido,  String pais,  String correo, String usuario) {
         this.nombre = nombre;
         this.apellido= apellido;
         this.pais= pais;
         this.correo= correo;
         this.usuario=usuario;
-        this.contrasena= contrasena;
+
 
     }
 
@@ -32,7 +32,7 @@ public class UsuarioBD {
 
     public String getUsuario() {return usuario;}
 
-    public  String getContrasena() { return contrasena;}
+
 
 
 }
