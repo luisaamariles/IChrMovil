@@ -33,11 +33,11 @@ import java.util.ArrayList;
 public class HabResActivity extends AppCompatActivity implements View.OnClickListener {
     String Nombre, idh, nombre, usuario, numhab, fechaind, fechainm, fechasald, fechasalm, fechain, fechasal, precio, habit1, habit2, dispo,
             estado1, estado2, Nombre2, hab1, hab, estado, estadod, estadof;
-    TextView Nomb, precio1;
+    TextView Nomb, precio1,salidad,salidam;
     Button Reserva;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
-    Integer ida, ban = 0, ban1 = 0;
+    Integer ida, ban = 0, ban1 = 0,fechain1=0;
     ArrayList<HabBD> info;
     ArrayList<HabBD> info2;
     ArrayList<CanchaBD> info3;
@@ -66,6 +66,8 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         Reserva = (Button) findViewById(R.id.Reservar);
         Reserva.setOnClickListener(this);
         precio1 = (TextView) findViewById(R.id.precio);
+        salidad = (TextView) findViewById(R.id.fechsad);
+        salidam = (TextView) findViewById(R.id.fechsam);
 
         info = new ArrayList<HabBD>();
         info2 = new ArrayList<HabBD>();
@@ -75,7 +77,7 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         habit2 = " ";
         habit1 = " ";
 
-        Toast.makeText(HabResActivity.this, Nombre, Toast.LENGTH_LONG).show();
+       // Toast.makeText(HabResActivity.this, Nombre, Toast.LENGTH_LONG).show();
         final String nom = Nombre;
         firebasedatos.addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,7 +117,7 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
         spinner3.setOnItemSelectedListener(new SpinnerListener());
-        Spinner spinner4 = (Spinner) findViewById(R.id.fechsad);
+       /* Spinner spinner4 = (Spinner) findViewById(R.id.fechsad);
         ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.fechad, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
@@ -124,12 +126,14 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this, R.array.fecham, android.R.layout.simple_spinner_item);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter5);
-        spinner5.setOnItemSelectedListener(new SpinnerListener());
+        spinner5.setOnItemSelectedListener(new SpinnerListener());*/
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             Nombre2 = user.getDisplayName();
         }
         firebasedatos2 = new Firebase(FIREBASE_URL);
+
 
     }
 
@@ -139,7 +143,6 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         Spinner spinner = (Spinner) findViewById(R.id.dispo);
         adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Toast.makeText(HabResActivity.this, habit1 + habit2, Toast.LENGTH_LONG).show();
         if (estado1.equals("0")) {
             adapter.add(hab);
 
@@ -154,6 +157,18 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
         //adapter.add(hab);
         //adapter.add(hab1);
     }
+   /* public void actualizar2(){
+        fechain1=Integer.parseInt(fechaind);
+        fechain1=fechain1+1;
+
+        fechain1.toString();
+        if(fechaind.equals("31")){
+            alerta();
+        }else{
+            salidad.setText(fechain1);
+            salidam.setText(fechainm);
+        }
+    }*/
 
     public class SpinnerListener implements AdapterView.OnItemSelectedListener {
 
@@ -169,16 +184,25 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
             } else if (spinner.getId() == R.id.fechind) {
                 //do this
                 fechaind = parent.getItemAtPosition(pos).toString();
+                if(pos < 30){
+                fechasald=parent.getItemAtPosition(pos+1).toString();
+                salidad.setText(parent.getItemAtPosition(pos+1).toString());}else{
+                    alerta();
+                }
             } else if (spinner.getId() == R.id.fechinm) {
 
                 fechainm = parent.getItemAtPosition(pos).toString();
-            } else if (spinner.getId() == R.id.fechsad) {
+                fechasalm=fechainm;
+                salidam.setText(fechainm);
+            } /*else if (spinner.getId() == R.id.fechsad) {
 
                 fechasald = parent.getItemAtPosition(pos).toString();
             } else if (spinner.getId() == R.id.fechsam) {
 
                 fechasalm = parent.getItemAtPosition(pos).toString();
-            }
+            }*/
+
+
 
         }
 
@@ -216,16 +240,11 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
                 if (dataSnapshot.child("FechaHab").child(mesi).child(diai).exists()) {
                     info3.add(dataSnapshot.child("FechaHab").child(mesi).child(diai).getValue(CanchaBD.class));
                     estado = info3.get(0).getEstado();
-                    if (ida == 0 && ban == 1 && ban1 == 1) {
+                    if (ida == 0) {
                         actualizarFecha();
                     }
                 } else {
-                    AlertDialog.Builder ad = new AlertDialog.Builder(HabResActivity.this);
-                    ad.setTitle("Importante");
-                    ad.setMessage("Esta fecha de entrada no se encuentra disponible");
-                    ad.setPositiveButton("Ok", null);
-                    ad.create();
-                    ad.show();
+                   alerta();
                 }
 
 
@@ -238,6 +257,19 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    public void alerta(){
+        AlertDialog.Builder ad = new AlertDialog.Builder(HabResActivity.this);
+        ad.setTitle("Importante");
+        ad.setMessage("Esta fecha no se encuentra disponible");
+        ad.setPositiveButton("Ok", null);
+        ad.create();
+        if(!(this).isFinishing())
+        {
+            //show dialog
+            ad.show();
+
+        }
+    }
     public void actualizarFecha(){
 
         final String diai = fechaind, dias = fechasald, mesi = fechainm, mesa = fechasalm;
@@ -252,12 +284,7 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
                         actualizarBase();
                     }
                 } else {
-                    AlertDialog.Builder ad = new AlertDialog.Builder(HabResActivity.this);
-                    ad.setTitle("Importante");
-                    ad.setMessage("Esta fecha de salida no se encuentra disponible");
-                    ad.setPositiveButton("Ok", null);
-                    ad.create();
-                    ad.show();
+                    alerta();
                 }
             }
 
@@ -282,7 +309,7 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
             fechain= fechaind +" "+fechainm;
             fechasal= fechasald+" "+fechasalm;
 
-            firebd = firebasedatos2.child("Reservas").child("reservahab" + " " + Nombre2);
+            firebd = firebasedatos2.child("Reservas").child("reservaHab" + " " + Nombre2);
             ReservaHabBD reservahab = new ReservaHabBD(Nombre2, dispo, fechain, fechasal, precio, Nombre);
             firebd.setValue(reservahab);
             firebd2 = firebasedatos2.child("FechaHab").child(fechainm).child(fechaind);
@@ -291,9 +318,15 @@ public class HabResActivity extends AppCompatActivity implements View.OnClickLis
             firebd3 = firebasedatos2.child("FechaHab").child(fechasalm).child(fechasald);
             CanchaBD cambioestado2 = new CanchaBD(estadod);
             firebd3.setValue(cambioestado2);
-            firebd4 = firebasedatos.child(Nombre).child(dispo);
-            CanchaBD cambioestado3 = new CanchaBD("1");
-            firebd4.setValue(cambioestado3);
+            if(dispo.equals(hab)) {
+                firebd4 = firebasedatos.child(Nombre).child("1");
+                HabBD cambioestado3 = new HabBD(hab,precio,"1");
+                firebd4.setValue(cambioestado3);
+            }else if(dispo.equals(hab1)){
+                firebd4 = firebasedatos.child(Nombre).child("2");
+                HabBD cambioestado3 = new HabBD(hab1,precio,"1");
+                firebd4.setValue(cambioestado3);
+            }
             AlertDialog.Builder ad = new AlertDialog.Builder(HabResActivity.this);
             ad.setTitle("Reserva realizada!");
             ad.setMessage("Recuerde que solo puede hacer una reserva");

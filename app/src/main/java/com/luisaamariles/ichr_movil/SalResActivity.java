@@ -219,12 +219,7 @@ public class SalResActivity extends AppCompatActivity implements View.OnClickLis
                         actualizarBase();
                     }
                 }else{
-                    AlertDialog.Builder ad = new AlertDialog.Builder(SalResActivity.this);
-                    ad.setTitle("Importante");
-                    ad.setMessage("Esta fecha no se encuentra disponible");
-                    ad.setPositiveButton("Ok", null);
-                    ad.create();
-                    ad.show();
+                    alerta();
                 }
             }
 
@@ -233,6 +228,19 @@ public class SalResActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+    }
+    public void alerta(){
+        AlertDialog.Builder ad = new AlertDialog.Builder(SalResActivity.this);
+        ad.setTitle("Importante");
+        ad.setMessage("Esta fecha no se encuentra disponible");
+        ad.setPositiveButton("Ok", null);
+        ad.create();
+        if(!(this).isFinishing())
+        {
+            //show dialog
+            ad.show();
+
+        }
     }
 
     public void actualizarBase() {

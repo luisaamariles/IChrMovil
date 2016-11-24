@@ -137,22 +137,32 @@
             android:layout_width="50dp"
             android:layout_height="20dp"
             />
-        <Spinner
-            android:verticalScrollbarPosition="left"
-            android:scrollbarThumbVertical="@drawable/scrollbar_style"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="text"
             android:id="@+id/fechsad"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-        <Spinner
-            android:verticalScrollbarPosition="left"
-            android:scrollbarThumbVertical="@drawable/scrollbar_style"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            />
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            />
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="text"
             android:id="@+id/fechsam"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            />
+
+
 
     </LinearLayout>
     <LinearLayout

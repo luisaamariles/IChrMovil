@@ -73,18 +73,21 @@ public class ConsActivity extends AppCompatActivity{
                     mini=info.get(0).getTipo();
                     minihora=info.get(0).getHora();
                     list.add("Mini Golf");
+                    ActHoraMini();
                 }
                 if(dataSnapshot.child("reservaTenis "+Nombre).exists()){
                     info2.add(dataSnapshot.child("reservaTenis "+Nombre).getValue(ReservaGenBD.class));
                     tenis=info2.get(0).getTipo();
                     tenishora=info2.get(0).getHora();
                     list.add("Tenis");
+                    ActHoraTen();
                 }
                 if(dataSnapshot.child("reservaSpa "+Nombre).exists()){
                     info3.add(dataSnapshot.child("reservaSpa "+Nombre).getValue(ReservaGenBD.class));
                     spa=info3.get(0).getTipo();
                     spahora=info3.get(0).getHora();
                     list.add("Spa");
+                    ActHoraSpa();
                 }
                 if(dataSnapshot.child("reservaSal "+Nombre).exists()){
                     info4.add(dataSnapshot.child("reservaSal "+Nombre).getValue(ReservaSalBD.class));
@@ -94,6 +97,7 @@ public class ConsActivity extends AppCompatActivity{
                     precio=info4.get(0).getPrecio();
                     salon=info4.get(0).getSalon();
                     list.add("Salón");
+                    ActHoraSal();
                 }
                 if(dataSnapshot.child("reservaHab "+Nombre).exists()){
                     info5.add(dataSnapshot.child("reservaHab "+Nombre).getValue(ReservaHabBD.class));
@@ -113,7 +117,7 @@ public class ConsActivity extends AppCompatActivity{
         //info = new ArrayList<UsuarioBD>();
 
     }
-    public void Actualizar(){
+    public void ActHoraMini(){
         if (minihora.equals("13")) {
             minihora="1";
         } else if (minihora.equals("14")) {
@@ -129,6 +133,8 @@ public class ConsActivity extends AppCompatActivity{
         } else if (minihora.equals("19")) {
             minihora = "7";
         }
+    }
+    public void ActHoraTen(){
         if (tenishora.equals("13")) {
             tenishora="1";
         } else if (tenishora.equals("14")) {
@@ -144,6 +150,8 @@ public class ConsActivity extends AppCompatActivity{
         } else if (tenishora.equals("19")) {
             tenishora = "7";
         }
+    }
+    public void ActHoraSpa(){
         if (spahora.equals("13")) {
             spahora="1";
         } else if (spahora.equals("14")) {
@@ -159,6 +167,8 @@ public class ConsActivity extends AppCompatActivity{
         } else if (spahora.equals("19")) {
             spahora = "7";
         }
+    }
+    public void ActHoraSal(){
         if (horasal.equals("13")) {
             horasal="1";
         } else if (horasal.equals("14")) {
@@ -176,6 +186,9 @@ public class ConsActivity extends AppCompatActivity{
         }else if (horasal.equals("20")) {
             horasal = "8";
         }
+    }
+    public void Actualizar(){
+
         int size=list.size();
         for(int x=0;x<size;x++) {
             if(list.get(x)=="Mini Golf"){
@@ -218,9 +231,11 @@ public class ConsActivity extends AppCompatActivity{
             };
         }else if(size==1){
             datos = new ListCons[]{
-                    new ListCons(list.get(0), list.get(0)),
+                    new ListCons(list.get(0), list2.get(0)),
             };
         }else if(size==0){
+            datos = new ListCons[]{
+            };
             AlertDialog.Builder ad = new AlertDialog.Builder(ConsActivity.this);
             ad.setMessage("No tiene ninguna reserva!");
             ad.setPositiveButton("Ok", null);

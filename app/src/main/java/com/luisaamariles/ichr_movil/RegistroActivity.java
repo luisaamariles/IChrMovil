@@ -89,11 +89,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     eCorreo.setText(correo);
                     eCorreo.setFocusable(false);
                     existe = "ok";
-                }else{
-                    if(ban==0) {
-                        Alerta();
-                        ban=1;
-                    }
                 }
             }
             @Override
@@ -131,6 +126,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     startActivity(intent3);
                     finish();
                 }else {
+                    Alerta();
                     firebd = firebasedatos.child("usuario").child("usuario "+ nusuario);
                     UsuarioBD usuario = new UsuarioBD(nombreu,apellido,pais,correo,nusuario);
                     firebd.setValue(usuario);
@@ -162,6 +158,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 if (user==null) {
                     Intent intent2 = new Intent(this, LogginActivity.class);
                     startActivity(intent2);
+                    finish();
                 }else {
                     AlertDialog.Builder ad = new AlertDialog.Builder(RegistroActivity.this);
                     ad.setMessage("cerrando sesión");
